@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // const a = 1;
+    // console.log(a);
+    // var a;
+    new Promise(function (resolve, reject) {
+      console.log(a);
+      resolve();//等同于suc
+    }).then(
+      function suc() {
+        console.log("成功执行了！");
+      },//
+      function rej(err) {
+        console.log(err);
+      })
+
+    console.log(3);//由于promise函数的存在 不会停止执行该行代码
+  </script>
+</body>
+
+</html>

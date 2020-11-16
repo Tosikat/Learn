@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function Star(name, age) {
+      this.name = name;
+      this.age = age;
+    }
+    // Star.prototype.sing = function () {
+    //   console.log("I can sing");
+    // }
+    // Star.prototype.dance = function () {
+    //   console.log("I can dance");
+    // }
+    Star.prototype = {
+      constructor: Star,//添加constructor 使constructor再次指向原来的构造函数
+      sing: function () {
+        console.log("I can sing");
+      },
+      dance: function () {
+        console.log("I can dance");
+      }
+    }
+    var Mon = new Star('Light', 18);
+    var Sun = new Star('Night', 23);
+    console.log(Star.prototype.constructor, Mon.__proto__);//以对象的形式进行赋值会constructor被覆盖 无法指向原来的构造函数
+    console.log(typeof Star.prototype.__proto__,Star.prototype, Star.prototype.__proto__);
+    console.log(Star.prototype.__proto__.__proto__ ,Mon.__proto__);
+
+
+
+  </script>
+</body>
+
+</html>

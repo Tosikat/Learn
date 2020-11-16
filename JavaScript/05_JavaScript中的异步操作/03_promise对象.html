@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    canvas{
+      background-color: #3498db;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+
+<body>
+  <canvas width="800px" height="600px" id="cav"></canvas>
+  <script>
+    const a = 10;
+    new Promise(function(resolve,reject){
+      
+      setTimeout(() => reject(new Error('fail')), 3000) 
+
+    }).then(function success(){
+      console.log("打印成功执行我！");
+    },function fail(){
+      console.log("打印失败执行我！");
+    })
+
+
+
+
+    // function add(getX, getY, cb){
+    //   var x, y;
+    //   (getX(function setX(xVal) {
+    //     x = xVal;
+    //     if(y != undefined){
+    //       cb(x + y);
+    //     }
+    //   }))();
+    //   (getY(function setY(yVal) {
+    //     y = yVal;
+    //     if(x != undefined){
+    //       cb(x + y);
+    //     }
+        
+    //   }))();
+      
+    // }
+    // var x = prompt("输入x ：");
+    // var y = prompt("输入y :");
+    // var sum;
+    // add(x,y,sum)
+  </script>
+</body>
+
+</html>

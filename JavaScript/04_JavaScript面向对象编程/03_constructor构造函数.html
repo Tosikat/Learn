@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>00
+    function Star(name, age) {
+      this.name = name;
+      this.age = age;
+    }
+    // Star.prototype.sing = function () {
+    //   console.log("I can sing");
+    // }
+    // Star.prototype.dance = function () {
+    //   console.log("I can dance");
+    // }
+    Star.prototype = {
+      constructor: Star,//添加constructor 使constructor再次指向原来的构造函数
+      sing () {
+        console.log("I can sing");
+      },
+      dance() {
+        console.log("I can dance");
+      }
+    }
+    var Mon = new Star('Light', 18);
+    var Sun = new Star('Night', 23);
+    console.log(Star.prototype.constructor, Mon.__proto__);//以对象的形式进行赋值会constructor被覆盖 无法指向原来的构造函数
+    console.log("Mon实例对象" + Mon.name, Mon.age);
+    console.log("Sun实例对象" + Sun.name, Sun.age);
+    Mon.sing();
+    Sun.sing();
+    Mon.dance();
+    Sun.dance();
+    console.log(Mon instanceof Star);//instanceof 检测左边是否为右边的实例对象
+ 
+  </script>
+</body>
+
+</html>

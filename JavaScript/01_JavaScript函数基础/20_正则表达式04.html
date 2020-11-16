@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+    检查一个字符串是否有点 . 是任意字符
+    转义字符\
+    \.表示.
+    \\表示\ 字符串中使用两个\\表示一个
+    \表示字符串中的转义字符 如果使用\则使用\\来代替
+    \+字母 查文档 大写是非 小写是 */
+    var reg = new RegExp("\.")
+    console.log(reg.test("\\./"));
+
+
+    // 去除掉空格 用”“替换空格
+    var str = prompt("输入一个字符串：")
+    console.log(str);
+
+    str = str.replace(/^\s*/g, "");//消除开头的零个或者多个空格
+    console.log(str);
+
+    console.log((new RegExp('1\\+1')).test('1+1'));
+
+  </script>
+</body>
+
+</html>

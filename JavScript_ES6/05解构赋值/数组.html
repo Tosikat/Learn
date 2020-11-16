@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  let [a, b, c] = [1, 2, 3];
+  console.log(a, b, c);
+
+  let [foo, [[bar], baz]] = [1, [[2], 3]];
+  console.log(foo, bar, baz);
+
+  let [ , , third] = ["foo", "bar", "baz"];
+  console.log(third); // "baz"
+
+  let [x, , y] = [1, 2, 3];
+  console.log(x); // 1
+  console.log(y); // 3
+
+  console.log("********************");
+  console.log("********************");
+  let [head, ...tail] = [1, 2, 3, 4];
+  console.log(head); // 1
+  console.log(tail); // [2, 3, 4]
+
+  console.log("********************");
+  let [q, w, ...e] = ['a'];
+  console.log(q); // "a"
+  console.log(w); // undefined
+  console.log(e); // []
+  console.log("********************");
+  //不是可遍历的结构 报错let [foobar] = 1;
+  //不是可遍历的结构 报错let [foobar] = false;
+  //不是可遍历的结构 报错let [foobar] = NaN;
+  //不是可遍历的结构 报错let [foobar] = undefined;
+  //不是可遍历的结构 报错let [foobar] = null;
+  //不是可遍历的结构 报错let [foobar] = {};
+
+  console.log("********************");
+</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      margin: 0;
+      padding: 0;
+    }
+    .boxOut{
+      width: 600px;
+      height: 600px;
+      outline: 1px solid red;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    .box{
+      width: 400px;
+      height: 200px;
+      background-color: #3498db;
+      border-top: 10px solid orangered;
+      border-bottom: 20px solid orangered;
+      border-left: 30px solid orangered;
+      border-right: 40px solid orangered;
+      padding: 20px;
+      margin: 50px auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="boxOut">
+  <div class="box">
+  </div>
+</div>
+  <script>
+    var box = document.querySelector('.box');
+    console.log(box.offsetHeight);
+    console.log(document.documentElement.offsetWidth);
+    console.log(box.offsetTop);
+  </script>
+</body>
+</html>

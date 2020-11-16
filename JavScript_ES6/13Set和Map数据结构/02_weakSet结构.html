@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+ //与set数据类型相似 ,但是weakSet内部只能存放对象
+
+
+  //we.add(1);//Invalid value used in weak set
+    const a = [[1, 2], [3, 4]];
+    const ws = new WeakSet(a);
+    console.log(a);//不直接操作原数组将其变成WeakSet的成员 并且是a内部的成员成为了成员即[],[]二维数组
+    console.log(ws);//没有size方法不能读取其长度
+  //  const b = [3, 4];
+  // const ws1 = new WeakSet(b);//数组成员不是对象 不能成为weakSet的成员
+/*
+* WeakSet 不能遍历，是因为成员都是弱引用，随时可能消失，遍历机制无法保证成员的存在，很可能刚刚遍历结束，
+* 成员就取不到了。WeakSet 的一个用处，是储存 DOM 节点，而不用担心这些节点从文档移除时，会引发内存泄漏。
+*
+* */
+ const foos = new WeakSet()
+ class Foo {
+   constructor() {
+     foos.add(this)
+   }
+   method () {
+     if (!foos.has(this)) {
+       throw new TypeError('Foo.prototype.method 只能在Foo的实例上调用！');
+     }
+   }
+ }
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">OK
+  <p id="text">123！</p>
+  </div>
+  <button onclick="add()">按钮</button>
+  <script>
+    var html = document.getElementsByTagName("html");
+    console.log(html);
+
+    var html = document.documentElement;
+    console.log(typeof html, html);
+    //对象 打印网页所有代码
+
+    function add() {
+      var app = document.getElementById("app");
+      app.innerHTML = "123546"
+    }
+  </script>
+</body>
+
+</html>

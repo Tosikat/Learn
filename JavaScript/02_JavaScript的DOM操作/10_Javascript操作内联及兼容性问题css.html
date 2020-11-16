@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #box {
+      width: 200px;
+      height: 200px;
+      padding: 10px;
+      border: 40px solid black;
+      background-color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container" style="position: relative;">
+    <div id="comproes" style="position: relative;">
+      <div id="box">
+      </div>
+    </div>
+  </div>
+  <button id="btn">按钮</button>
+  <script>
+
+    // 点击btn修改div大小
+    var box = document.getElementById("box")
+    var btn = document.getElementById("btn")
+    // console.log(box.style.backgroundColor);读取的是内联样式 无法读取样式表中的样式
+
+    btn.onclick = function () {
+      // alert(box.clientHeight);
+      //clientHeight
+      //clientWidth 不显示px单位 返回数字 可直接进行计算包括内外边距  不包括边框
+      // 只读不能修改未公示
+      /* 
+      offsetWidth
+      offsetHight获取元素的宽度和高度 包括内外边框 内容区 内边距 */
+      var op = box.offsetParent;
+      console.log(op.id ,op);
+      // 返回定位的父元素 非static 如都未设置 则返回body
+      // 查文档scrollHight - scrollTop == clientHeight说明垂直滚动条滚到底了  滚动监听
+
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+    JS中单个包装类，通过这三个包装类可以将基本数据类型的数据转换为对象
+    String()
+    Number()
+    Boolean()
+    可创建相应类型的对象 数据存放在堆内存中
+     */
+    // var num = new Number(3);
+    var str = new String("hello");
+    console.log(str);
+    console.log(str.length);
+    var b = new Number("123")
+    // var boo = new Boolean(true);
+    // 基本不会使用这种对象 比较之下 对比的是内存地址
+    /*
+    方法和属性能添加对象，基本数据类型不能
+    对一些基本数据类型的值去调用属性和方法时
+    浏览器会隐式使用包装类将其转换为对象，然后再调用对象的属性和方法
+    调用完以后再将其转换为基本数据类型 */
+    var s = 123;
+    s = s.toString();
+    s.hello = "hell0"
+    console.log(s.hello);//只能调用JS库中已存在的，不能自定义
+    console.log(typeof s.toString(), s.toString());
+
+
+
+  </script>
+</body>
+
+</html>

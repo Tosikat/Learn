@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var arr = [1, 2, 3, 4, 5];
+
+    //像这种创建但没有调用的称为回调函数
+    // 每次执行时浏览器会将的遍历的函数以形参的方式来读取这些内容
+    // forEach参数必须是个函数
+    /* 浏览器会在回调函数中传递三个参数，
+    第一个参数，就是当前正在遍历的元素
+    第二个参数，就是当前正在遍历的元素的索引
+    第三个参数，就是正在遍历的数组
+    */
+    arr.forEach(function (value, index, obj) {
+      console.log(value, index, obj);
+
+    });
+  </script>
+</body>
+
+</html>

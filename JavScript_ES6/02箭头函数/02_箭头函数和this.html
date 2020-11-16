@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    body{
+      margin: 0;
+      padding: 0;
+      background-color: skyblue;
+    }
+  </style>
+</head>
+<body>
+<script>
+  // window.name = "window12";
+  //
+  // let fn = n => {
+  // console.log(this.name);
+  // }
+  // let obj = {
+  //   name:'OBJ',
+  //   fn:fn
+  // };
+  // fn(10);//window12
+  // fn.call(obj,10);//window12
+  // document.body.onclick = fn();//window12
+  // obj.fn();//window12
+
+  let obj = {
+    name: 'Obj',
+    fn:function () {
+      let f = () =>{
+        console.log(this);
+      };
+      return f;
+    }
+  };
+  let f =obj.fn();
+  f();
+</script>
+</body>
+</html>

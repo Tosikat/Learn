@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // function a(b) { 
+    //   // var b;
+    //   console.log(b);
+    //   var b = 1;
+    // }
+    // a(100);
+
+    // function a(b) {
+    //   var b;
+    //   console.log(b);
+    //   b = 1;
+    // }
+    // a(100);
+
+    // function a(b) {
+    //   console.log(b);// funtion b
+    //   var b = 1;
+    //   function b() { };
+    //   b = 2;
+    //   console.log(b);//2
+    // }
+    // a(100)
+    // console.log("*************");
+    // function fn() {
+    //   console.log(a);//undefined
+    //   console.log(b);//undefined
+    //   console.log(c);//undefined
+    //   console.log(d);//undefine
+    //   if (false) {
+    //     function a() { };//函数预编译时只声明函数
+    //     var b = 1;
+    //   }
+    //   if (true) {
+    //     function c() { };
+    //     var d = 1;
+    //   }
+    //   console.log(a);//undefined
+    //   console.log(b);//undefined
+    //   console.log(c);//funtion c
+    //   console.log(d);//1
+    // }
+    // fn()
+    //声明为赋值 即使在if(false)里也能预编译
+
+    var a = 0;
+    b = 0;
+    function A(a){
+      A = function(b){
+        console.log(a + b++);
+      }
+      console.log(a++);
+    }
+    A(1);
+    A(2);
+
+  </script>
+</body>
+
+</html>

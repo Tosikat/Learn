@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="icon" href="./img/jQuery.ico">
+  <script src="../../jquery-1.12.4/jquery.js"></script>
+  <style>
+    body{
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+    h1,h2,h3,h4,h5,h6{
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    .box{
+      height: min-content;
+      outline: 1px solid red;
+    }
+    .box > .part{
+      height: 600px;
+      line-height: 600px;
+      font-size: 30px;
+    }
+    .box > .part1{
+      background-color: #f95643;
+    }
+    .box > .part2{
+      background-color: #333;
+    }
+    .box > .part3{
+      height: 1000px;
+      line-height: 1000px;
+      background-color: #3498db;
+    }
+    .box > .part4{
+      background-color: #8e44ad;
+    }
+    .box > .part5{
+      background-color: #666;
+    }
+    .links{
+      margin: 0;
+      padding: 0;
+      width: 130px;
+      list-style: none;
+      height: 450px;
+      position: fixed;
+      right: 40px;
+      top: 80px;
+      background-color: black;
+    }
+    .links > li> a{
+      text-decoration: none;
+      display: block;
+      width: 130px;
+      height: 90px;
+      outline: 1px solid white;
+      text-align: center;
+      line-height: 90px;
+      background-color: #7f8c8d;
+      color: white;
+      font-size: 48px;
+    }
+    .links > li> a.active{
+      background-color: orange;
+    }
+  </style>
+</head>
+<body>
+<div class="box">
+  <div class="part part1"><h1>标题</h1></div>
+  <div class="part part2"><h2>头部</h2></div>
+  <div class="part part3"><h3>身体</h3></div>
+  <div class="part part4"><h4>下身</h4></div>
+  <div class="part part5"><h5>底部</h5></div>
+</div>
+
+<ul class="links">
+  <li><a class="active" href="javascript:;">标题</a></li>
+  <li><a href="javascript:;">头部</a></li>
+  <li><a href="javascript:;">身体</a></li>
+  <li><a href="javascript:;">下身</a></li>
+  <li><a href="javascript:;">底部</a></li>
+</ul>
+<script>
+  $(function () {
+    $('.links > li > a').on('click',function () {
+      const part = $('a').index(this);
+      $(this).addClass('active').parent().siblings().children().removeClass('active');
+      console.log(this);
+      $('html').stop(false, false).animate({
+        scrollTop : $('.box > div').eq(part).offset().top
+      },1000)
+    })
+    $(window).scroll(function () {
+    })
+    $.ajax()
+
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #content {
+      height: 150px;
+      line-height: 150px;
+      text-align: center;
+      color: #fff;
+      background-color: #ccc;
+      font-size: 80px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="content"></div>
+  <script>
+    let num = 1;
+    let content = document.getElementById('content');
+
+    function count() {
+      content.innerHTML = num++;
+      console.log(num);
+    };
+    // content.onmousemove = count;
+
+    function throttle(fn, delay) {
+      let flag = true
+
+      return function() {
+        if(!flag){
+          return false
+        }
+      flag = false
+        setTimeout(() =>{
+          fn()
+          flag = true
+        }, delay)  
+    }
+  }
+  content.onmousemove = throttle(count, 2000)
+    
+
+  </script>
+</body>
+
+</html>

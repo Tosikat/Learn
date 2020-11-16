@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <script>
+    /*
+      json 格式
+        + 是什么 ?
+          => 是一种固定的字符串格式
+          => 'asdasdasdasd'   普通字符串
+          => '1231654781332'  纯数字字符串
+          => '<h1>hello world</h1>'  html 格式字符串
+          => json 也是一种字符串的格式, 和普通字符串本质上没有区别
+            -> 只是多了一些固定格式
+        + 干啥用 ?
+          => 再电脑网络传输的过程中
+          => 只能传递字符串, 别的不好使
+          => 传递不了对象和数组数据类型
+          => 如果你想传递数组或者对象, 那么需要转换成字符串的格式传递
+          => json 格式就是满足对象和数组数据结构的一种字符串
+        + 怎么用 ?
+          => 两个方法
+          1. JSON.parse()
+            -> 把 json 格式的字符串转换成 JS 的数组或者对象
+          2. JSON.stringify()
+            -> 把 JS 格式的数组或者对象转换成 json 格式的字符串
+        + json 数据格式(重点)
+          1. 描述数组或者对象数据类型
+          2. 对象中的 key 和 value 都使用 双引号 包裹
+            -> 数字和布尔可以不需要引号
+          3. 数组里面可以放多个对象
+          4. 当多个数据的时候, 最后一个数据后面不能有 逗号(,)
+          5. 一个 json 格式中, 可以使用符号, 只有 {}, [], "", 逗号
+          6. 转换 json 格式字符串的时候, 函数会被自动过滤
+        + 语法:
+          1. JSON.parse()
+            => 语法: JSON.parse(要转换的 json 格式字符串)
+            => 返回值: JS 格式的数组或者对象
+          2. JSON.stringify()
+            => 语法: JSON.stringify(要转换的数组或者对象)
+            => 返回值: 一个 json 格式的字符串
+
+      扩展: 报错信息
+        => Uncaught SyntaxError: Unexpected token h in JSON at position 0
+        => 你必然执行了一段代码, JSON.parse(xxx)
+          -> 你的 xxx 不是一个 json 格式的字符串(不符合 json 格式)
+    */
+
+    // 1. JSON.parse()
+    // 我们自己手写一个 json 格式的字符串
+    // var jsonStr = '{ "name": "Jack", "age": 18, "gender": "男" }'
+    // var jsonStr = '[{ "name": "Jack", "age": 18, "gender": "男" }, { "name": "Jack", "age": 18, "gender": "男" }]'
+    // var jsonStr = 'hh'
+    // var obj = JSON.parse(jsonStr)
+    // console.log(obj)
+
+    // 2. JSON.stringify()
+    // var obj = { name: 'Jack', age: 18, gender: '男', fn: function () {} }
+    // var arr = [
+    //   { name: 'Jack' },
+    //   { name: 'Rose' },
+    //   { name: 'Tom' },
+    // ]
+    // var jsonStr = JSON.stringify(arr)
+    // console.log(jsonStr)
+
+
+
+
+
+  </script>
+</body>
+</html>

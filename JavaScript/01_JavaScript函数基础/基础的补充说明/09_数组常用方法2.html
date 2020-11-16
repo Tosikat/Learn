@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <script>
+    /*
+      数组常用方法
+        + 就是 JS 自带一些操作数组得方法
+        + 数组常用方法得使用格式, 必须是 数组.xxx()
+        + 数组和伪数组得区别
+          => length 和 索引都一样, 循环遍历都一样
+          => 长得也一样
+          => 唯独数组常用方法, 伪数组同不了
+
+      5. reverse()
+        => 语法: erse数组.rev()
+        => 作用: 反转数组
+        => 返回值: 反转后得数组
+        => 直接操作原始数组
+
+      6. sort()
+        => 语法:
+          1. arr.sort()
+            -> 按照每一个数据中得每一位数据得 ASCII 码进行排列
+          2. arr.sort(function (a, b) { return a - b })
+            -> 升序排列
+          3. arr.sort(function (a, b) { return b - a })
+            -> 降序排列
+        => 作用: 数组排序
+        => 返回值: 排序后得数组
+        => 直接操作原始数组
+
+      7. splice()
+        => 语法:
+          1. 数组.splice(开始索引, 多少个)
+            -> 从开始索引, 截取多少个
+            -> 第二个参数可以不写, 直接到末尾
+          2. 数组.splice(开始索引, 多少个, 替换数据1, 替换数据2, 替换数据3, ...)
+            -> 把替换数据按照顺序插入到你截取得位置
+            -> 注意: **从哪个索引开始删除, 替换数据得第一个就插入哪个位置**
+        => 作用: 有两个
+          1. 截取数组
+          2. 替换新内容
+        => 返回值: 一定是一个数组
+          -> 如果你截取多个数据, 数组里面有多个
+          -> 如果你截取一个数据, 数组里面有一个
+          -> 如果你一个都不截取, 那么是一个空数组
+        => 直接操作原始数组
+
+      8. concat()
+        => 语法: 数组.concat(数组1, 数据2, ...)
+        => 作用:
+          -> 如果参数是数组, 那么把数组拆开, 里面每一项追加到原数组后面
+          -> 如果参数是数据, 那么直接追加
+        => 返回值: 追加好得数组
+        => 不改变原始数组
+
+      9. slice()
+        => 语法:
+          1. 数组.slice(开始索引, 结束索引) - 包前不包后
+            -> 第一个参数可以不写, 表示从头
+            -> 第二个参数可以不写, 表示到尾
+          2. 数组.slice(开始索引, 结束索引) - 包前不包后
+            -> 参数可以写一个负整数
+            -> 当你书写了一个负整数以后, 表示 length + 负整数
+        => 作用: 获取数组里面得某些数据
+        => 返回值: 一个数组
+          -> 如果你获取多个数据, 数组里面有多个
+          -> 如果你获取一个数据, 那么数组里面有一个
+          -> 如果你一个都不获取, 那么是个空数组
+        => 不改变原始数组
+
+      10. join()
+        => 语法: 数组.join('连接符号')
+          -> 不传递, 是按照 逗号(,) 连接
+          -> 你传递什么, 按照什么连接
+        => 作用: 把数组里面得每一个数据使用连接符号连接在一起
+        => 返回值: 是一个连接好得内容, 是一个 String 类型
+    */
+
+    // 5. reverse()
+    // var arr = ['hello', 'world', '你好', '世界']
+    // var res = arr.reverse()
+    // console.log(res)
+    // console.log(arr)
+
+    // 6. sort()
+    // var arr = [1, 11, 33, 26, 51, 19, 32, 27, 15, 100]
+    // var res = arr.sort()
+    // console.log(res)
+    // console.log(arr)
+
+    // var res = arr.sort(function (a, b) { return a - b })
+    // console.log(res)
+    // console.log(arr)
+
+    // var res = arr.sort(function (a, b) { return b - a })
+    // console.log(res)
+    // console.log(arr)
+
+    // 7. splice()
+    // var arr = ['hello', 'world', '你好', '世界']
+    // var res = arr.splice(1, 2)
+    // console.log('res: ', res)
+    // console.log('arr: ', arr)
+
+    // var res = arr.splice(1, 0, '新来的', '新来的2')
+    // console.log('res: ', res)
+    // console.log('arr: ', arr)
+    // ['hello', 'world', '新来的', '你好', '世界']
+    // ['hello', '新来的', 'world', '你好', '世界']
+
+    // 8. concat()
+    // var arr = ['hello', 'world', '你好', '世界']
+    // var res = arr.concat([10, 20], [30, 40], 100)
+    // console.log(res)
+    // console.log(arr)
+
+    // 9. slice()
+    // var arr = ['hello', 'world', '你好', '世界']
+    // var res = arr.slice(1, 3)
+    // console.log('res : ', res)
+    // console.log('arr : ', arr)
+
+    // 因为 length 是 4, -2 得位置实际上相当于 4 + -2, 2
+    // var res2 = arr.slice(1, -1)
+    // console.log('res2 : ', res2)
+    // console.log('arr : ', arr)
+
+    // 10. join()
+    var arr = ['hello', 'world', '你好', '世界']
+    var res = arr.join('abcd')
+    console.log(res)
+    console.log(arr)
+
+  </script>
+</body>
+</html>

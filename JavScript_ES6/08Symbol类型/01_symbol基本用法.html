@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  let s = Symbol();
+  console.log(typeof s);
+  let s1 = Symbol('foo');
+  let s2 = Symbol('bar');
+
+  s1 // Symbol(foo)
+  s2 // Symbol(bar)
+
+  console.log(s1.toString()); // "Symbol(foo)"
+  console.log(s2.toString()); // "Symbol(bar)"
+
+  const pro ={
+    toString() {
+      return 'abc';
+    }
+  };
+
+  const sym = Symbol(pro);
+  console.log(sym);
+
+  // Symbol函数的参数只是表示对当前 Symbol 值的描述，因此相同参数的Symbol函数的返回值是不相等的
+  let sy1 = Symbol('foo');
+  let sy2 = Symbol('foo');
+  console.log(sy1 === sy2);
+
+  console.log(NaN == NaN,null==undefined);//undefined值是派生自null值的，ECMAScript标准规定对二者进行相等性测试要返回true
+  let sy3 = Symbol();
+  let sy4 = Symbol();
+  console.log(sy3 === sy4);
+
+  //不可进行运算会报错
+  let s3 = Symbol();
+  // console.log(s3+1);//Cannot convert a Symbol value to a number
+
+  //能够转化成字符串和布尔值 但不能转化成数字类型
+  let syste = Symbol('My symbol');
+  console.log(String(syste));//My symbol
+  console.log(Boolean(syste));//true
+  console.log(Boolean(!syste));//false
+  let st = Symbol(123);
+  // console.log(Number(st)); Cannot convert a Symbol value to a number at Number (<anonymous>)
+
+  // ES2019转化Symbol的方法
+  console.log(syste.description);//My symbol简单明了
+</script>
+</body>
+</html>

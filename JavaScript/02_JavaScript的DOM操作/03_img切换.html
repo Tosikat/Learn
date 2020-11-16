@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    .box {
+      margin: 0 auto;
+      text-align: center;
+      width: max-content;
+      background-color: #f5f5f5;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <p id="info"></p>
+    <img src="../zero-img/tigerCake.jpg" alt="" width="400px" height="400px"><br>
+    <button id="pre"> 上一张</button>
+    <button id="next">下一张</button>
+  </div>
+  <script>
+    var pre = document.getElementById("pre");
+    var next = document.getElementById("next");
+    var img = document.getElementsByTagName("img")[0]
+    var imgArr = ["../zero-img/tigerCake.jpg", "../zero-img/001.jpg", "../zero-img/002.jpg", "../zero-img/003.jpg", "../zero-img/004.jpg"]
+    var index = 0;
+    /* 
+    h获取提示文字 */
+    var info = document.getElementById("info")
+    info.innerHTML = "一共" + imgArr.length + "张图片，这是第0" + (index + 1) + "张图片。"
+    // var p = document.getElementsByTagName("p");
+    // p.innerHTML = "123"
+    pre.onclick = function () {
+      index--;
+      if (index < 0)
+        index = imgArr.length - 1;
+        img.src = imgArr[index];
+      /* 
+          h获取提示文字 */
+      var info = document.getElementById("info")
+      info.innerHTML = "一共" + imgArr.length + "张图片，这是第0" + (index + 1) + "张图片。"
+    }
+    next.onclick = function () {
+      index++;
+      if (index > imgArr.length - 1)//4
+        index = 0;
+      img.src = imgArr[index]
+      // 修改一个元素的属性 元素.属性 = 属性值
+      // img.src = "zero-img/tigerCake.jpg"
+      /* 
+         h获取提示文字 */
+      var info = document.getElementById("info")
+      info.innerHTML = "一共" + imgArr.length + "张图片，这是第0" + (index + 1) + "张图片。"
+    }
+  </script>
+</body>
+
+</html>

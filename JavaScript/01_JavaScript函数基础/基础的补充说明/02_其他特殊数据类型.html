@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 1.NaN
+    // NaN表示非数字类型  用typeof 可得出 类型为number  与其运算的所有数字以及自己的结果都是NaN类型
+    console.log(NaN - 1,typeof(NaN - 1));
+    console.log(NaN == NaN);
+
+    // 2.Infinity
+    // 表示正无穷大 或者很小的数值 或是分母为0的运算结果
+    console.log(Math.pow(2, 1024));
+    console.log(1/0);
+    console.log(Infinity === -Infinity,-1/0,1/0) // false1 ,Infinity , -Infinity
+
+  </script>
+</body>
+</html>

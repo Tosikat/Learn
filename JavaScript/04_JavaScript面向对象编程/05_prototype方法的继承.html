@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function P(){  }
+    const p = new P();
+    P.prototype.sayHello = function(){
+      console.log("原型对象中的函数");
+    }
+    console.log(p.constructor);
+    console.log(P.prototype.constructor === P);
+    //p是构造函数P的实例对象，但是p自身没有constructor属性，
+    //该属性其实是读取原型链上面的P.prototype.constructor属性
+  </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      margin: 0;
+      padding: 0;
+      height: 2000px;
+    }
+    ul{
+      margin: 0;
+      padding: 0;
+      width: 800px;
+      height: 60px;
+      outline: 1px solid red;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      list-style: none;
+      margin:0 auto;
+      position:fixed;
+      background-color: red;
+    }
+    .nav li{
+      padding: 0;
+      width: 120px;
+      height: 56px;
+      outline: 1px solid red;
+    }
+  </style>
+</head>
+<body>
+  <ul class="nav" id="list">
+    <li><a href="" id="font">123</a></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+</body>
+<script>
+  var nav = document.getElementById('list');
+  var font = document.getElementById('font')
+  document.onscroll = function(){
+    // if(event.wheelDelta > 60)
+    nav.style.backgroundColor = "#3489db"
+    nav.style.transition = "0.4s"
+    font.style.fontSize = "12px"
+    font.style.transition = "1s"
+    console.log(123);
+    var _scroll = document.body.scrollTop || document.documentElement.scrollTop;
+    if(_scroll == 0){
+      nav.style.backgroundColor = "red";
+    }
+  }
+</script>
+</html>

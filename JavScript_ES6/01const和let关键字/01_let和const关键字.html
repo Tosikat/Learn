@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  // if(1){
+  //   var a = 10;
+  //   console.log(a);
+  // }
+  // console.log(a);
+  //
+  // if(1){
+  //   let b = 5;
+  //   console.log(b);
+  // }
+  // console.log(b);
+  /*
+  * 只有在大括号内部用let块级作用域 类似于函数
+  * 1.防止循环变量变成全局变量*/
+  for(var i = 0;i <= 5;i++){}
+  console.log(i);
+  for(let h = 0;h <= 5;h++){}
+  console.log(h);
+//在大括号里具有块级作用域的性质
+  /*
+  * 2.使用let关键字声明的变量没有变量提升
+  * 3.具有暂时性死区*/
+  // var num = 10;
+  // if(true){
+  //   console.log(num);
+  //   let num  = 5;
+  //  在块级作用域中绑定
+  // }
+  // 不能先试用 后声明
+
+
+</script>
+</body>
+</html>

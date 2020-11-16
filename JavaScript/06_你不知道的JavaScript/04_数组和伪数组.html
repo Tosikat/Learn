@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  
+  <script src="../07_jQuery/jquery.min.js"></script>
+</head>
+<body>
+  <div></div>
+  <div></div>
+  <div></div>
+  <script>
+    const arr = []
+    arr[3] = 3
+
+    console.log(arr, arr.length); //4
+    arr.forEach((item,index) => {
+      console.log(item, index);
+    })//只会打印有数据的索引下标
+
+    for(let i = 0;i < arr.length; i++){
+      console.log(arr[i]);
+    }//全部打印
+
+    const fakeArray = {
+      "0": "first",
+      "1": "second",
+      "2": "third",
+      length: 3
+    };
+ 
+    for(let i = 0;i < fakeArray.length; i++){
+      console.log(fakeArray[i]);
+    }
+    console.log(fakeArray);
+    // fakeArray.forEach(item => console.log(item)) 报错
+    const newArr = Array.from(fakeArray)
+    console.log(newArr);
+
+    newArr.forEach(item => console.log(item)) //转换成数组后可以使用数组的方法
+
+    const fakeArray1 = {
+      "0": "first",
+      "2": "second",
+      "1": "third",
+      "5": "fifth",
+      length: 6
+    };
+    console.log(Array.from(fakeArray1));
+    //(3) ["first", "third", "second"] 转化为数组 需要伪数组具有length属性 且值应该和转化的数组长度一致
+
+   const arr2 = Array.prototype.join.call(fakeArray, ' + ') 
+   //伪数组可以让很多对象也能够使用数组中的方法
+    console.log(arr2);
+
+
+    console.log("******************************");
+    // 常见的伪数组 agrument DOM对象列表 jQuery中用$获取的对象
+    const divArr = document.getElementsByTagName('div')
+    const divArr2 = $('div')
+    console.log(divArr);
+    console.log(divArr2);
+    
+    function add(a, b){
+      console.log(arguments);
+      return a + b
+    }
+    console.log(add(1, 2, 3, 4, 5, 6));
+
+    console.log(Array.prototype);
+
+  </script>
+</body>
+</html>

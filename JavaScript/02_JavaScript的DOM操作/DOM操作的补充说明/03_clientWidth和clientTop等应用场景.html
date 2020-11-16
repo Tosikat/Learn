@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      margin: 0;
+      padding: 0;
+    }
+    .box{
+      width: 400px;
+      height: 200px;
+      background-color: #3498db;
+      border-top: 10px solid orangered;
+      border-bottom: 20px solid orangered;
+      border-left: 30px solid orangered;
+      border-right: 40px solid orangered;
+      padding: 20px;
+      margin: 100px auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+
+  </div>
+  <script>
+    var box = document.querySelector('.box');
+
+    console.log("box-width: " + box.clientWidth);//box的高度 
+    console.log("box-height: " + box.clientHeight);//box的宽度
+
+    console.log("box-TopBorder: " + box.clientTop);//box外边框到内边框的距离 仅指上边框
+    console.log("box-LeftBorder: " + box.clientLeft);//box外边框到内边框的距离 仅指左边框
+  </script>
+</body>
+</html>

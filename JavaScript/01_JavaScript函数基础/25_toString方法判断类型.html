@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 为了防止对象自定义方法 同Sting需要用call绑定目标
+    var type = function (o) {
+      var s = Object.prototype.toString.call(o);
+      return s.match(/\[object (.*?)\]/)[1].toLowerCase();
+    };
+
+
+    type({}); // "object"
+    type([]); // "array"
+    type(5); // "number"
+    type(null); // "null"
+    type(); // "undefined"
+    type(/abcd/); // "regex"
+    type(new Date()); // "date"
+  </script>
+</body>
+
+</html>

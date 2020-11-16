@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #box {
+      width: 300px;
+      height: 300px;
+      background-color: red;
+    }
+
+    span {
+      background-color: orange;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box">
+    我是box
+    <span id="container">我是span元素</span>
+  </div>
+  <div id="itemBox"></div>
+  <script>
+    /* 
+    事件的冒泡
+    --所谓的冒泡指的就是事件的向上传导，当后代元素上的事件被触发时,其祖先元素的相同时间也会被触发
+    --大部分冒泡都是有用的，如果不希望发生事件冒泡可以通过事件来取消冒泡
+     */
+    var container = document.getElementById("container");
+    var box = document.getElementById("box");
+    container.onclick = function () {
+      alert("span的单级响应函数 event:" + event);
+      // 取消冒泡 cancelBubble设置为true 取消冒泡
+      // event.cancelBubble = true;
+    }
+    box.onclick = function () {
+      alert("div的单级响应函数");
+    }
+    document.body.onclick = function () {
+      alert("body的单级响应函数");
+    }
+
+    var itemBox = document.getElementById("itemBox");
+
+  </script>
+</body>
+
+</html>

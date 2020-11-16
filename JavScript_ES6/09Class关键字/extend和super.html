@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  class Foo{
+    constructor(p, q){
+      this.x = p;
+      this.y = q;
+    }
+    gimmerXY(){
+      return this.x * this.y;
+    }
+  }
+
+  class Bar extends Foo{
+    constructor(a, b, c){
+      super(a, b);//必须调用传入父类参数才能使用 无需和父类一致
+      this.z = c;
+    }
+
+    gimmerXYZ() {
+      return super.gimmerXY() * this.z;
+    }
+  }
+
+  console.log(Foo.prototype);
+  console.log(Bar.prototype);
+  const b = new Bar(5, 15, 25);
+  console.log(b.x);
+  console.log(b.y);
+  console.log(b.z);
+  console.log(b.gimmerXYZ());
+</script>
+</body>
+</html>

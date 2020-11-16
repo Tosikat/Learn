@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    img {
+      display: block;
+      margin: 10px auto;
+    }
+
+    div {
+      margin: 10px auto;
+      text-align: center;
+    }
+
+    button {
+      margin: 20px 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <img src="../zero-img/tigerCake.jpg" alt="" id="img1" width="400px" height="400px">
+    <button id="btn">开始</button>
+    <button id="btnEnd">结束</button></div>
+  <script>
+    var btn = document.getElementById('btn');
+    var btnE = document.getElementById('btnEnd');
+    var img1 = document.getElementById('img1');
+    //创建一个数组来保存图片的路径
+    var imgArr = ["../zero-img/tigerCake.jpg", "../zero-img/001.jpg", "../zero-img/002.jpg", "../zero-img/003.jpg", "../zero-img/004.jpg", "../zero-img/005.jpg", "../zero-img/006.jpg"]
+
+    var index = 0;
+    var t = 0;//先定义一个t 保证t为已定义
+    //开启定时器 切换图片
+    btn.onclick = function () {
+      //连续点击会开启多个定时器 只能关闭最后一个点击的定时器
+      clearInterval(t);
+      t = setInterval(function () {
+        //定义为全局变量 不然后面接收不到参数t
+        index++;
+        // if (index >= imgArr.length) {
+        //   index = 0
+        // }
+        index %= imgArr.length;
+        img1.src = imgArr[index];
+      }, 500)
+    }
+    btnE.onclick = function () {
+      clearInterval(t);
+
+    }
+
+  </script>
+</body>
+
+</html>

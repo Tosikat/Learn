@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .btn{
+      text-decoration: none;
+      display: block;
+      width: 80px;
+      height: 48px;
+      text-align: center;
+      line-height: 48px;
+      background-color: #3498db;
+      color: white;
+      border-radius: 12px;
+      margin: 10px auto;
+      border: 1px solid white;
+    }
+    .b{
+      background-color: white;
+      color: #3498db;
+      border: 1px solid #3498db;
+    }
+  </style>
+</head>
+<body>
+  <a href="" class="btn">点击创建</a>
+  <script>
+    const btn = document.querySelector('.btn');
+    btn.addEventListener('mousedown',function(){
+      // const tr = document.createElement(tr);
+      // console.log(123);
+      btn.style.backgroundColor = "white"
+      btn.style.color = "#3498db";
+      btn.style.border = "1px solid #3498db"
+    })
+  </script>
+</body>
+</html>

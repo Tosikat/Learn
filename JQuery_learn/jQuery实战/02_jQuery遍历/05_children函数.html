@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="../../jquery-1.12.4/jquery.min.js"></script>
+</head>
+<body>
+<ul>
+  <li>1</li>
+  <li class="center">2</li>
+  <li>3</li>
+</ul>
+<script>
+  $(function () {
+    $('ul').children('.center').css({//在匹配元素的子元素中寻找符合children
+      backgroundColor: "red"
+    })
+  })
+</script>
+</body>
+</html>

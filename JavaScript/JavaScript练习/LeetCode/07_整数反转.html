@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  /**
+   * @param {number} x
+   * @return {number}
+   */
+  const reverse = function (x) {
+      if(x > 0){
+        x = Number(String(x).split('').reverse().join(''))
+        if (x > Math.pow(2, 31) - 1 || x < -Math.pow(2, 31)){
+          return 0;
+        }else {
+          return x;
+        }
+      }else {
+        x = -Number(String(Math.abs(x)).split('').reverse().join(''))
+        console.log(-Number(String(Math.abs(x)).split('').reverse().join('')))
+        if (x > Math.pow(2, 31) - 1 || x < -Math.pow(2, 31)){
+          return 0;
+        }else {
+          return x;
+        }
+      }
+  };
+  x = 1534236469;
+  reverse(x)
+</script>
+</body>
+</html>

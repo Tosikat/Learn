@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>手风琴图片库</title>
+  <script src="../../jquery-1.12.4/jquery.min.js"></script>
+  <style>
+    body{
+      margin: 0;
+      padding: 0;
+    }
+    .picBox{
+      width: 820px;
+      height: 280px;
+      border: 5px solid #3498db;
+      margin: 40px auto;
+      display: flex;
+      position: relative;
+      overflow: hidden;
+    }
+    img{
+      position: absolute;
+      outline: 1px solid red;
+    }
+  </style>
+</head>
+<body>
+<div class="picBox">
+  <img src="./img/01.jpg" alt="" width="520" height="280">
+  <img src="./img/02.jpg" alt="" width="520" height="280" style="left: 100px">
+  <img src="./img/03.jpg" alt="" width="520" height="280" style="left: 200px">
+  <img src="./img/04.jpg" alt="" width="520" height="280" style="left: 300px">
+</div>
+<script>
+  $('.picBox > img').on('mouseover', function () {
+    console.log($(this));
+    $(this).animate({
+      right:100
+    })
+  })
+</script>
+</body>
+</html>

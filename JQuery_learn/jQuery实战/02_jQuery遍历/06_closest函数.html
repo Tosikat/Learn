@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="../../jquery-1.12.4/jquery.min.js"></script>
+</head>
+<body>
+<ul>我会变成绿色
+  <li>OUT<a href="">123</a></li>
+  <li>OUT<a href="">123</a></li>
+  <li>OUT<a href="">123</a></li>
+  <li>OUT<a href="">123</a></li>
+</ul>
+<script>
+  $('a').closest('li').css({//从子类中忘上寻找
+    color: "red"
+  })
+  $('a').closest('ul').css({
+    color: "green"
+  })
+</script>
+</body>
+</html>

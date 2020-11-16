@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    "use strict"
+    // 解析器在调用函数每次都会向函数内部传递一个隐含的参数，
+    // 这个隐含的参数就是this。 this 所指的是一个对象
+    // 这个对象我们称为函数执行的上下文对象
+    /*根据函数调用方式的不同,this会指向不同的对象
+    1.以函数的形式调用时,this永远指向window
+    2.以方法的形式调用时,this就是调用方法的那个对象 
+    //箭头函数内this是固定的继承上下文所在的this 并且不能改变 （无意义）
+    */
+    // function fun() {
+    //   console.log(this);
+    // }
+    // fun();
+    // //一函数方式调用 就是window
+
+    // // 创建一个对象
+    // var obj = {
+    //   name: "yourself",
+    //   age: 23,
+    //   sayName: fun
+    // }
+    // obj.sayName();
+    //方法的形式调用时 this 就是谁
+
+    //谁调用this  this就指向谁
+     a = 1;
+    var name = "globe"
+
+    function abc() {
+      console.log(this);
+
+    }
+    function apc() {
+      console.log(this.name);
+
+    }
+    var obj = {
+      name: "why",
+      saySelf: abc,
+      sayName: apc
+    }
+    var obj2 = {
+      name: "because",
+      saySelf: abc,
+      sayName: apc
+    }
+
+    obj.saySelf();
+    obj2.saySelf();
+    obj.sayName();
+    obj2.sayName();
+  </script>
+</body>
+
+</html>

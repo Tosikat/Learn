@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <script>
+    /*
+      数组去重
+        + 去除数去中重复得数据
+    */
+    /*
+      方案1
+        1. 循环遍历数组
+          => 从 [0] 开始, 拿到每一个
+          => 像后面区比较, 只要后面还有一个和我一样得
+          => 把我删除掉
+    */
+
+    // 0. 准备一个数组
+    var arr = [1, 2, 3, 5, 6, 4, 3, 2, 1, 1, 2, 3, 4, 5]
+
+    // 方案1:
+    for (var i = 0; i < arr.length; i++) {
+      // 第一个数字开始比较, 向后比较
+
+      for (j = i + 1; j < arr.length; j++) {
+        if (arr[i] === arr[j]) {
+          arr.splice(j, 1)
+          j--
+        }
+      }
+    }
+    console.log(arr);
+    /*
+      j === 8, i === 0
+        arr[0] === arr[8]  true
+        arr.splice(8, 1)
+        [1, 2, 3, 5, 6, 4, 3, 2, 1, 2, 3, 4, 5]
+        j--
+        j++
+      j === 8, i === 0
+        arr[0] === arr[8]  true
+        arr.splice(8, 1)
+        [1, 2, 3, 5, 6, 4, 3, 2, 2, 3, 4, 5]
+        j--
+        j++
+      j === 8, i === 0
+        arr[0] === arr[8] false
+        j++
+    */
+
+
+
+    /*
+      方案2:
+        1. 准备一个新的数组
+        2. 遍历原始数组
+          => 一个一个得向新数组里面添加
+          => 只要新数组里面没有这个数据, 就加进去
+          => 如果新数组里面有这个数据, 就算了
+    */
+
+    // 1. 准备一个新数组
+    // var newArr = []
+
+    // 2. 遍历原始数组
+    // for (var i = 0; i < arr.length; i++) {
+    //   // 查看原始数组里面有没有 arr[i] 这个数据
+    //   // if (newArr.indexOf(arr[i]) === -1) {
+    //   //   // 表示 newArr 里面没有这个数据
+    //   //   // 放进去
+    //   //   newArr.push(arr[i])
+    //   // }
+
+    //   if (!newArr.includes(arr[i])) {
+    //     // 能执行 if 条件, 说明 !newArr.includes(arr[i]) 是个 true
+    //     // newArr.includes(arr[i]) 是 false
+    //     newArr.push(arr[i])
+    //   }
+    // }
+
+
+    /*
+      方案3:
+        + [1, 2, 3, 100, 1000, 2000, 2000]
+        + 因为数组里面得索引不允许重复, 重复索引就是修改
+        + 对象,
+          -> obj.name = 'xxx'
+          -> 对象成员名不重名
+
+        1. 准备一个空对象
+        2. 循环遍历数组, 把每一个成员当作对象得 key 来使用
+          -> 值填充什么无所谓
+        3. 循环遍历对象, 把每一个 key 添加到新数组里面
+    */
+
+
+    // 1. 准备一个空对象
+    // var obj = {}
+
+    // // 2. 循环遍历数组
+    // for (var i = 0; i < arr.length; i++) {
+    //   // 把数组里面得每一个值当作 obj 得key 来添加成员
+    //   obj[arr[i]] = '早上吃了煎饼'
+    // }
+
+    // // 3. 准备一个新数组
+    // var newArr = []
+    // for (var key in obj) {
+    //   // key 就是对象里面得每一个数据
+    //   // key 一定是字符串类型
+    //   newArr.push(key - 0)
+    // }
+
+  </script>
+</body>
+</html>

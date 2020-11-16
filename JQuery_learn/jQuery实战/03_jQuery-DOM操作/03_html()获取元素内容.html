@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="../../jquery-1.12.4/jquery.min.js"></script>
+</head>
+<body>
+<div class="app">我是app</div>
+<script>
+  $(".app").click(function () {
+    var htmlStr = $(this).html();
+    console.log($(this).text(htmlStr));
+  });
+  console.log($('.app').html());//html不接受任何参数
+</script>
+</body>
+</html>

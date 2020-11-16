@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="../../jquery-1.12.4/jquery.min.js"></script>
+  <style>
+    div{
+      width: 50px;
+      height: 50px;
+      background-color: skyblue;
+      position: relative;
+      margin: 10px;
+      display: none;
+    }
+    div.active{
+      background-color: yellowgreen;
+    }
+  </style>
+</head>
+<body>
+<button class="start">Click Start!</button>
+<button class="stop">Click Stop!</button>
+<div></div>
+<script>
+  $('.start').click(function () {
+    $('div').show('slow');
+    $('div').animate({
+      left: '200'
+    },1000).queue(function () {
+    $(this).addClass('active');
+    $(this).dequeue();
+    }).slideUp();
+  })
+  $('.stop').click(function () {
+    // $('div').queue('fn', []);
+    $('div').stop();
+
+  })
+</script>
+</body>
+</html>

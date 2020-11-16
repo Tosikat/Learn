@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+   .box{
+     width: 80px;
+     display: flex;
+   }
+   .inner1{
+     flex: 1 1 50px;
+     /* flex-grow ， flex-shrink, flex-basis */
+     background-color: red;
+     align-items: flex-end;
+   }
+   .inner2{
+     flex: 1 1 100px;
+     background-color: green;
+   }
+ 
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="inner1">div1</div>
+    <div class="inner2">div2</div>
+  </div>
+  <script>
+    const div1 = document.querySelector('.inner1');
+    const div2 = document.querySelector('.inner2');
+
+    const str = "  a  df   ";
+    console.log(str);
+    console.log(str.trim());
+  </script>
+</body>
+</html>

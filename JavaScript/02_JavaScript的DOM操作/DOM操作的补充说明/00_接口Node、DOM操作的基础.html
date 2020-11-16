@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    ul{
+      width: 100px;
+      margin: 0;
+      padding: 3px;
+      outline: 1px solid red;
+    }
+    a {
+      display: block;
+      outline:1px solid #3498db;
+      margin: 4px 4px;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <ul>
+    <li>
+      <a href="" class="item">123</a>
+    </li>
+    <li>
+      <a href="" class="item">123</a>
+    </li>
+    <li>
+      <a href="" class="item">123</a>
+    </li>
+    <li>
+      <a href="" class="item">123</a>
+    </li>
+    <li>
+      <a href="" class="item">123</a>
+    </li>
+  </ul>
+  <button id="btn">点击文字变色</button>
+  <script>
+    // var btn = document.getElementById('btn');
+    var btn = document.querySelector('#btn');
+    var fonts = document.querySelectorAll('.item');
+    console.log(btn);
+    console.log(fonts);
+    // var fonts = document.getElementsByClassName("item")
+    // querySelector用来获取单个类或者ID  querySelectorAll用来
+    btn.onmousedown = function(){
+      console.log(123);
+      for(var i = 0;i < fonts.length;i ++){
+        fonts[i].style.color = "#3498db";
+      }
+    }
+    btn.onmouseup= function(){
+      console.log(123);
+      for(var i = 0;i < fonts.length;i ++){
+        fonts[i].style.color = "red";
+      }
+    }
+  </script>
+</body>
+</html>

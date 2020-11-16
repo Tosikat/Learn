@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  let {foo, bar} = {foo: "foo", bar: "bar"};
+  console.log(foo, bar);
+  /*
+  * 对象的解构与数组有一个重要的不同。数组的元素是按次序排列的，变量的取值由它的
+  位置决定；而对象的属性没有次序，变量必须与属性同名，才能取到正确的值。
+  * */
+  let { baz } = { foo: 'aaa', bar: 'bbb' };
+  console.log(baz); // undefined
+  /*
+  * 值为defined的
+  * 1.左边对象为赋值
+  * 2.左边对面的键名右边未找到 ，对象中次序颠倒对赋值的影响不大*/
+  let {name, age} = {age: 18, name: 'Ming'};
+  console.log(name, age);
+
+  // let { log, sin, cos } = Math;//将Math对象的对数、正弦、余弦三个方法，赋值到对应的变量上直接使用
+  // console.log(sin(0.5));
+  console.log("********************");
+  const { log } = console;
+  log('hello');
+
+  console.log("********************");//键值对不同的情况下，必须写成以下这种形式
+  // let { foo: baz } = { foo: 'aaa', bar: 'bbb' };
+  // baz // "aaa"
+  let obj = { first: 'hello', last: 'world' };
+  let { first: f, last: l } = obj;
+  console.log(f); // 'hello'
+  console.log(l); // 'world'
+  console.log("********************");
+  // 对象的解构赋值的内部机制，是先找到同名属性，然后再赋给对应的变量。真正被赋值的是后者，而不是前者
+  let { foo: baz } = { foo: 'aaa', bar: 'bbb' };
+  baz // "aaa"
+  foo // error: foo is not defined
+</script>
+</body>
+</html>

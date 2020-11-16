@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function Person (name, age, gender){
+      this.name = name;
+      this.age = age;
+      this.gender = gender;
+    }
+    Person.prototype.ad = function(){
+      console.log("我是基本属性");
+    }
+
+    function Action(dance, sing, rap){
+      this.dance = dance;
+      this.sing = sing;
+      this.rap = rap;
+    }
+    Action.prototype = new Person("Tosikat", 18, "male");
+    Action.prototype.ap = function(){
+      console.log("我是基本行为");
+    }  
+    const j = new Action("txt", "let", "ok");
+    const i = new Person("lijun", "22", "male");
+    
+
+    console.log(j);
+    console.log(j.__proto__.__proto__);
+    console.log(j.__proto__);
+    console.log("************");
+    console.log(i);
+    console.log(i.prototype);
+    console.log(i.__proto__);
+    console.log(i instanceof Person); //true
+    console.log(i instanceof Action); //false
+    console.log(j instanceof Person); //true
+    console.log(j instanceof Action); //true
+    
+  </script>
+</body>
+</html>

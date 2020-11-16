@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var n = prompt("请输入n: " );
+    var m = prompt("请输入m: " );
+    maxFac(n, m);
+    function maxFac(n,m){
+      if(n === m){
+        return m;
+      }
+      if(n < m){
+        var temp = m;
+        m = n;
+        n = temp;
+      }
+      while(n % m !=0){
+        var temp = n % m;
+        n = m;
+        m = temp;
+      }
+      console.log(m);
+    }
+  </script>
+</body>
+</html>

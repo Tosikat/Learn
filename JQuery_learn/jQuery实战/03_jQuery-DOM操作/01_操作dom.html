@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="../../jquery-1.12.4/jquery.min.js"></script>
+  <style>
+    .box{
+      background-color: #333 ;
+    }
+  </style>
+</head>
+<body>
+<div class="box" id="app" style="background-color: aqua"></div>
+<script>
+  $('.box').css({//修改的是内联样式
+    width: 200,
+    height: 200,//px单位可以省略
+    backgroundColor: '#3498db',//必须用单引号包括
+    opacity: 0.3
+  })
+  $('#app').css({
+    margin: 100,
+    backgroundColor: 'red'//样式会被后面的覆盖，不同的属性重叠
+  })
+</script>
+</body>
+</html>

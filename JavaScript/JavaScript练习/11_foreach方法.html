@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var obj = {
+      name: "lijun",
+      age : 22,
+      height: 1.76,
+      sex : "male"
+    }
+    var arr = [8, 7, 6, 5, 4, 3, 2, 1];
+    arr.forEach(function(item, index,n){//item依次遍历数组的值 ，index数组的下标 ，n被遍历的数组本身
+      console.log(n,index,item);//数组方法 只能用来遍历数组
+    })
+  </script>
+</body>
+</html>

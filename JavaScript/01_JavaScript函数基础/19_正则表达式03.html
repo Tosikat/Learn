@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /* 
+    量词 ：通过两次可以设置一个内容出现的次数
+    {n}正好出现n的次数  */
+    veg = /{ab}{3}/;
+    console.log(reg.test("ababab"));
+    /*
+    开头紧跟a:/^a/
+    以a结尾：/a$/
+    如果在表达式中同时/^$/则要完全符合表达式的方法
+     */
+
+    /* 创建一个正则表达式检查一个字符串是否是一个合法的手机号
+    手机号
+    11位数字
+    以1开头/^a
+    第二位3-9的任意数字
+    三位以后任意9位数字
+    ^1[3-9][0-9]{9}$
+    */
+    var phone = /^1[3-9][0-9]{9}$/;
+    var tel = "12345678915"
+    var tel1 = "18855092565"
+
+    console.log(phone.test(tel), phone.test(tel1));
+
+
+
+  </script>
+</body>
+
+</html>

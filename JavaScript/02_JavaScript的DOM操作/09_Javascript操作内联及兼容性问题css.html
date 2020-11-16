@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #box {
+      width: 800px;
+      height: 200px;
+      background-color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box" style="background-color: green ;"></div>
+  <button id="btn">按钮</button>
+  <script>
+
+    // 点击btn修改div大小
+    var box = document.getElementById("box")
+    var btn = document.getElementById("btn")
+    console.log(box.style.backgroundColor);//读取的是内联样式 无法读取样式表中的样式
+    btn.onclick = function () {
+      /* 修改box的大小
+      通过JS修改元素 的样式 语法:元素.style.样式名 = 样式值
+      如果css的样式中含有-在js中不合法 需要将这种样式修改成驼峰标识
+      eg：background-color => backgroungColor
+       */
+      // box.style.width = "500px";
+      box.style.transition = "0.8s"
+      box.style.backgroundColor = "orange";
+      // 改动的是内联样式  在标签内 有较高的优先级 在js中修改的css会立即执行
+      // 如在样式中写入！important 有着更高的优先级 会使js失效
+
+      /* 获取元素当前显示的样式 
+      语法:元素.样式.属性*/
+      // console.log(box.currentStyle.width);只有IE8一下支持 DNM
+      // var obj = getComputedStyle(box, null);//返回一个对象
+      // console.log(getComputedStyle(box, null).width);只有IE8以下不支持//读取渲染到dom上的值 未设置值的时候 获取窗口大小的实际值
+      // 定义一个函数，用来获取指定元素的当前样式
+      /*  
+      参数： 
+      obj:要获取的样式的元素
+      name：要获取的样式名 */
+
+      console.log(getStyle(box, "width"));//注意格式
+
+      function getStyle(obj, name) {
+        // return getComputedStyle(obj, null)[name];//正常浏览器方式
+        // return obj.currentStyle[name];IE浏览器
+        if (window.getComputedStyle) {
+          //添加window IE浏览器不具有getComputedStyle的方法 
+          // !避免报错 变量没找到 报错 属性没找到undefined
+          console.log(window.getComputedStyle);
+          return getComputedStyle(obj, null)[name];
+        }
+        else
+          return obj.currentStyle[name];
+        // 或者两者换位使用或是三元运算符
+        // 涉及到兼容性的问题  处理思路都一样
+      }
+
+
+
+    }
+  </script>
+</body>
+
+</html>

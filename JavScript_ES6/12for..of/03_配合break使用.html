@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<script>
+ const myArr = [10, 6, 1, 7, 8, 3, 2, 4];
+ for(let value of myArr){
+   if(value == 4){
+     console.log("结果为4时跳出遍历");
+     break;
+   }
+   console.log(value);
+ }
+
+ for(let key in myArr){
+   if (key >= 6)
+     break;
+   console.log(key);
+ }
+</script>
+</body>
+</html>

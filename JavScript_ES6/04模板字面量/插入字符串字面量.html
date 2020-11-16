@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<script>
+  function upper(s) {
+    return s.toUpperCase();
+  }
+  const who = "reader";
+  var text = `A very ${upper("warm")} welcome
+  to all of you ${upper(`${who}s`)}!`;//可在模板字符串里出现任何合法的表达式 在${}里
+
+  console.log(text);
+</script>
+</body>
+</html>

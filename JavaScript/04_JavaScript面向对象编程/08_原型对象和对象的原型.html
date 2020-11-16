@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function person(name, age){
+      this.name = name;
+      this.age = age;
+    }
+    person.prototype.sayHello = function(){
+      console.log("HELLO Tosikat!");
+    }
+    person.prototype.sayHello();//定义在原型对象中不能直接访问
+    const p = new person("Tosikt", 22);
+    console.log("p访问sayHello方法！");
+    p.sayHello();//可以直接访问
+    console.log(person.prototype);
+    console.log(p.__proto__);
+    console.log(Object.__proto__);
+  </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function f() { 
+      age: 22
+    }
+    console.log( f.prototype);
+    // "object"
+
+    function Animal(name) {
+      this.name = name;
+    }
+    Animal.prototype.color = 'white';
+
+    var cat1 = new Animal('大毛');
+    var cat2 = new Animal('二毛');
+
+    console.log(cat1.color === cat2.color, cat1.color);
+    console.log(Object.getPrototypeOf(Animal));
+    // instanceof表达式，用来比较一个对象是否为某个构造函数的实例
+    console.log(typeof Function.prototype);
+    console.log(typeof Object.prototype.__proto__);
+    console.log(Function.prototype());
+  </script>
+</body>
+
+</html>

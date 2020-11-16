@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      height: 2000px;
+    }
+    .bigBox {
+      width: max-content;
+      margin: 0 auto;
+    }
+
+    #box {
+      width: 400px;
+      height: 300px;
+      outline: 1px solid #333;
+    }
+
+    #container {
+      width: 300px;
+      height: 100px;
+      margin: 0 auto;
+      border: 1px solid #333;
+      text-align: center;
+      line-height: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bigBox">
+    <div id="box"></div>
+    <div id="container"></div>
+  </div>
+  <script>
+    var areaDiv = document.getElementById("box");
+    var showDiv = document.getElementById("container");
+
+    /*事件对象
+    该事件的响应函数被触发时，浏览器每次都会将一个事件对象作为实参传递进响应函数 
+    在实践对象中封装了当前事件相关的一切信息，输入鼠标的坐标 键盘的哪个按键被按下 鼠标滑轮滚动等
+     */
+
+    // onmousemove当鼠标在该元素地区移动时触发
+    document.onmousemove = function (event) {
+      // 在showDiv中显示鼠标的信息
+
+      // fireBoxes、IE兼容性问题 IE(window.event)  
+      // 火狐if(!event) event = window.event  ||   event = event||window.event
+      var x = event.pageX;
+      var y = event.pageY;//相对于client对于是整个页面的的位置 滚动条后移动到原点位置防止显示为0 0
+      showDiv.innerHTML = "x = " + x + ", y =" + y;
+      // alert(event);
+    }
+  </script>
+</body>
+
+</html>

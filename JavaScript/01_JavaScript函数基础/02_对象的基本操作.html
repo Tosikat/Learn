@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var obj = new Object();
+    var obj2 = new Object();
+
+    obj2.name = "coderwhy";
+    obj.test = obj2;
+    console.log(obj2);
+
+    console.log(obj.test.name);
+    console.log(obj);
+
+
+    // 向对象中增加值 属性名符合变量名的规则 可以给对象中添加对象
+    obj.name = "li";
+    obj.age = 18;
+
+    console.log("name" in obj);//用in来检查一个对象中是否含有制定的属性 如果有则返回true 注意顺序
+    console.log(typeof obj);
+    console.log(obj);
+    console.log(obj.name);
+
+    // 对象的简化创建
+    var obj5 = {
+      name: "lilei",
+      age: 23,
+      test: {
+        name: "junjun"
+      }
+    }
+    console.log(obj5.name);
+    console.log(typeof obj5.name);
+    console.log(obj5.test);
+    console.log(obj5);
+    console.log(typeof obj5);
+
+  </script>
+</body>
+
+</html>

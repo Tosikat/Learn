@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <script>
+    /*
+      计数排序 countSort
+        + 利用数组的索引
+        + 因为数组的索引也是一个数字
+
+      1. 准备一个数组
+        => arr = [100, 87, 66, 92, 35, 35, 24, 11, 2, 3, 87, 91]
+      2. 遍历原始数组
+        => 准备一个新的空数组
+        => 遍历原始数组
+        => 把原始数组里面的每一个数字当作索引填充到新数组里面
+      3. 把临时数组反馈到原始数组里面
+        => 遍历临时数组
+    */
+
+    // 1. 准备一个数组
+    // var arr = [100, 87, 66, 92, 35, 35, 24, 11, 2, 3, 87, 91]
+
+    // 2. 遍历原始数组
+    // var tmpArr = []
+
+    // 第一个数字是 100
+    // 在我创建的 tmpArr 里面 [100] 位置添加一个数据
+    // tmpArr[100] = 1
+    // tmpArr[87] = 1
+    // tmpArr[35] = 1
+    // 每次添加的时候都看一下, 如果当前这个索引位置没有数据, 设置为 1
+    // 如果这个索引位置有数据, ++
+    // 第二次遇到 [35] 位置的时候
+    // tmpArr[35]++
+    // for (var i = 0; i < arr.length; i++) {
+    //   // 把他添加数据, 但是我要先判断
+    //   if (tmpArr[arr[i]] !== undefined) {
+    //     tmpArr[arr[i]]++
+    //   } else {
+    //     tmpArr[arr[i]] = 1
+    //   }
+    // }
+
+    // 3. 遍历临时数组
+    // arr.length = 0
+    // for (var i = 0; i < tmpArr.length; i++) {
+    //   // 遇到 undefined 这一次什么也不需要
+    //   if (tmpArr[i] === undefined) continue
+
+    //   // console.log('要排序的数字是 ' + i, '有 ' + tmpArr[i] + ' 个')
+    //   // 有多少个, 循环多少次
+    //   for (var j = 1; j <= tmpArr[i]; j++) {
+    //     // 这个 j 循环, 有多少个要添加的数字就循环多少次
+    //     arr[arr.length] = i
+    //   }
+    // }
+
+
+
+    /*
+      tmpArr = [
+        empty,
+        empty,
+        1, // 1 表示 1 个, 索引2, 表示我要排序的数字
+        1, // 1 表示 1 个, 索引3, 表示我要排序的数字
+        empty * 7,
+        1, // 1 表示 1 个, 索引11, 表示我要排序的数字
+      ]
+
+      // 向 arr 里面添加 1 个 2
+      // 向 arr 里面添加 1 个 3
+      // 向 arr 里面添加 1 个 11
+      // 向 arr 里面添加 1 个 24
+      // 向 arr 里面添加 2 个 35
+    */
+
+
+    var arr = [100, 87, 66, 92, 35, 35, 24, 11, 2, 3, 87, 91]
+
+    // 1. 把原始数组的数字当作索引放到新数组里面
+    var tmpArr = []
+    for (var i = 0; i < arr.length; i++) {
+      if (tmpArr[arr[i]] !== undefined) {
+        tmpArr[arr[i]]++
+      } else {
+        tmpArr[arr[i]] = 1
+      }
+    }
+
+    // 2. 把 tmpArr 里面的索引还原到 arr 里面
+    arr.length = 0
+    for (var i = 0; i < tmpArr.length; i++) {
+      if (tmpArr[i] === undefined) continue
+      for (var j = 1; j <= tmpArr[i]; j++) {
+        arr[arr.length] = i
+      }
+    }
+    console.log(arr);
+  </script>
+</body>
+</html>

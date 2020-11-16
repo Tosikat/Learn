@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function Person(name, age, gender){
+      this.name = name;
+      this.age = age;
+      this.gender = gender;
+      this.sayHello = function(){
+        return this.name + this.age;
+      }
+    }
+    const p = Person("Tosikat", 22, "male");//如果不使用new person内的值会暴露在window中
+    console.log(window.name, window.age, window.gender);
+  </script>
+</body>
+</html>

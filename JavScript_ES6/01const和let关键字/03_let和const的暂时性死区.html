@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  if ([]) {
+    // TDZ开始
+    // tmp = 'abc'; // ReferenceError
+    // console.log(tmp); // ReferenceError
+    //在代码块内，
+    // 使用let命令声明变量之前，该变量都是不可用的。这在语法上，称为“暂时性死区”
+
+    let tmp; // TDZ结束
+    console.log(tmp); // undefined
+
+    tmp = 123;
+    console.log(tmp); // 123
+  }
+  console.log(tmp);//ReferenceError
+</script>
+</body>
+</html>

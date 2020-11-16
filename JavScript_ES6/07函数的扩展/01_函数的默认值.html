@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  function log(x, y) {
+    y = y || 'World';
+    if(y === 'undefined'){
+      y = 'World'
+    }
+
+  console.log(x, y);
+  }
+  log('Hello') // Hello World
+  log('Hello', 'China') // Hello China
+  log('Hello', '') // Hello World
+  console.log('' == false);//true
+
+
+  function def(x, y = 'age') {
+    console.log(x, y);
+  }
+
+  def('name');//需要传入字符型参数 数字 传入一个参数
+  def('Hello', 'Lijun');
+  def('hello','')//hello 默认空字符
+  def('hello'+''+1);//hello1 age 相当于一个参数
+  console.log("********************");
+  // function foo(x = 5) {
+  //   let x = 1; // error
+  //   const x = 2; // error默认声明不能再次声明
+  // }
+
+  function foo(x, x, y) {
+    console.log(x, x, y); // ...
+  }
+  foo(1, 1, 2);
+
+  // function bar(x, x, y = 1) {
+  //   console.log("bar函数执行", y);
+  // }
+  // bar ();
+  // 使用参数时也不能使用相同的参数在不同的函数中
+  var h = 99;
+  function foo(p = h + 1) {
+    console.log(p);
+  }
+  foo(); // 100
+
+  h = 100;
+  foo() // 101
+</script>
+</body>
+</html>

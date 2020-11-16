@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body {
+      height: 3000px;
+    }
+
+    button {
+      position: fixed;
+      bottom: 50px;
+      right: 50px;
+    }
+  </style>
+</head>
+<body>
+
+  <button id="btn">定位滚动条位置</button>
+
+  <script>
+    /*
+      自己完成浏览器回到顶部
+        1. document.documentElement.scrollLeft
+           document.documentElement.scrollTop
+           是读写的属性
+          可以获取可以设置
+          设置: 直接赋值就可以了
+        2. 定时器
+          => 作用: 每间隔一段时间执行一次代码
+          => 如果: 我每间隔 30ms, 让当前浏览器卷去的高度 - 20
+        3. 滚动以后, 就停不下来了
+          => 因为你点击的时候, 开启了定时器
+          => 这个定时器就一直存在
+          => 解决问题
+            -> 直接再定时器里面判断
+            -> 当 卷去的高度 <= 0 的时候, 停止定时器
+        4. 假设你的滚动速度比较慢
+          => 再没有滚动到指定位置的时候
+          => 没有办法中断
+          => 回到顶部, 是数字越来越小
+            -> 一旦下一次滚动比上一次滚动数字要大
+            -> 说明反方向再移动
+            -> 就要停下来
+          => 浏览器滚动事件的时候做这个事情
+            -> 记录上一次的位置
+    */
+    var timer = 0
+    btn.onclick = function () {
+      // 设置一个定时器, 来让滚动条向上滚动
+      timer = setInterval(function () {
+        document.documentElement.scrollTop -= 30
+
+        // 停止滚动到目标位置以后停止定时器
+        if (document.documentElement.scrollTop <= 0) {
+          clearInterval(timer)
+        }
+      }, 50)
+    }
+
+    // 再外面记录上一次的位置
+    var st = 0
+
+    // 滚动过程中, 你改变滚动方向, 停下来
+    window.onscroll = function () {
+      // 再你给 st 赋值之前, st 的值是上一次的值
+      // 进行比较
+      if (document.documentElement.scrollTop >= st) {
+        // 停止定时器
+        clearInterval(timer)
+      }
+
+      // 把当前位置赋值给 st
+      // 随着滚动记录每一次滚动的位置
+      st = document.documentElement.scrollTop
+      console.log(st)
+    }
+  </script>
+</body>
+</html>

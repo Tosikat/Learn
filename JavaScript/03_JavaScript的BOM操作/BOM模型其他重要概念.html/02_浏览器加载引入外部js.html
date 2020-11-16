@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./a.js" defer></script>
+  <script src="./b.js" defer></script> 
+  <!-- 上面代码中，只有等到 DOM 加载完成后，才会执行a.js和b.js -->
+  <script src="./b.js" async></script>
+  <script src="./d.js" async></script>
+ 
+</head>
+
+<body>
+  <p>为了解决脚本文件下载阻塞网页渲染的问题，一个方法是对script元素
+    加入defer属性。它的作用是延迟脚本的执行，等到 DOM 加载生成后，再执行脚本。</p>
+    <p>defer和async的区别
+      defer:加载html同时下载defer标签 加载完html标签后 执行事件前js引擎加载完成js；
+      async:页面渲染html标签的同时下载async外部引入js js下载完成后停止渲染页面 加载js 哪个js文件先下载完成
+      哪个js先进行加载；
+      一般来说，如果脚本之间没有依赖关系，就使用async属性，如果脚本之间有依赖关系，就使用defer属性。
+      如果同时使用async和defer属性，后者不起作用，浏览器行为由async属性决定
+    </p>
+</body>
+
+</html>

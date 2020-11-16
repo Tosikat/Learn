@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="../../jquery-1.12.4/jquery.min.js"></script>
+</head>
+<body>
+<button class="btn1">Click me!</button>
+<script>
+  $('.btn1').click(function () {
+    console.log("第一个事件");
+  }).click(function () {
+    alert("第二个事件");
+  })
+</script>
+</body>
+</html>

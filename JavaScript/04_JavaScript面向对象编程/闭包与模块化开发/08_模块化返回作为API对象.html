@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var foo = (function coolModule(id){
+      
+
+      function identify1(){
+        console.log(id);
+      }
+
+      function identify2(){
+        console.log(id.toUpperCase());
+      }
+
+      function change() {
+       publicAPI.identify = identify2;
+      }
+
+      var publicAPI = {
+        change:change,
+        identify:identify1
+      }
+      return publicAPI;
+    })("lijun-module");
+
+    foo.identify();
+    foo.change();
+    foo.identify();
+
+    //模块实例的内部保留对公共APIuh对象的引用以及修改函数的方法并进行调用 可以增加或删除方法和属性，以及修改他们的值。
+  </script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!DOCTYPE html>
+  <html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      function fun() {
+        console.log(this);
+      }
+      /*
+      call（）和apply（）
+      这两个方法都是函数对象的方法，需要通过函数对象来调用
+      当对函数调用call()和apply()可以将一个对象指定为第一个参数
+      此时这个对象将会称为函数执行时的this */
+
+      var obj = {
+      };
+      // this的情况：
+      // 1.以函数形式调用时，this指定永远都是window
+      // 2.以方法的形式调用时，this是调用方法的对象
+      // 3.以构造函数的形式调用时，this指定的是新创建的那个对象
+      // 4.使用call() apply()调用时，this是指定的那个对象
+      // call()方法可以将实参在对象之后一次传递
+      // apply()方法需要将实参封装到一个数组中统一传递 //并指定函数
+      fun();
+      fun.call(obj);//制定谁this所指向的就是谁
+      fun.call();
+      fun.apply(obj);
+      fun.apply();
+      fun.call(obj, 2, 3)
+      fun.apply(obj, [2, 3])
+
+
+
+      var name = 'Evan';
+      var age = 20;
+      var person = {
+        name: 'Hillary',
+        age: 19,
+        sayIntroduce: function () {
+          return "Hello, My name is " + this.name + " and I'm " + this.age + ' years old.'
+        },
+        sayHobby: function (val1, val2) {
+          return "I'm " + this.name + ", I like " + val1 + " and " + val2 + ".";
+        }
+      }
+      var person1 = {
+        name: 'Coy'
+      }
+      console.log(person.sayIntroduce()); // Hello, My name is Hillary and I'm 19 years old.
+
+    </script>
+  </body>
+
+  </html>
+</body>
+
+</html>

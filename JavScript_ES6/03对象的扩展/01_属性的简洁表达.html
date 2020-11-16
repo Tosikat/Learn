@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  'use strict';
+
+  // 1.方法的简洁写法
+  const obj = {
+    method: function () {
+      console.log(123)
+    }
+  };
+  const obj1 = {
+    methods(){
+      console.log(456);
+    }
+  };
+  obj.method();
+  obj1.methods();
+
+  const age = 18;
+  const bar ={
+    name: 'lijun',
+    age,
+    gender: 'mam',
+    bobby: 'none'
+  }
+  console.log(bar);
+
+//简写的对象方法不能用作实例对象 不然会报错
+  const chec = {
+    f() {
+      this.foo = 'bar';
+    }
+  };
+
+  // new chec.f() // 报错chec.f is not a constructor
+</script>
+</body>
+</html>

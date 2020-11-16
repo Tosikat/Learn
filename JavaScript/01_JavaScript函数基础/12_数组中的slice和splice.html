@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    html{
+      color: #b99988;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>狗狗狗</h1>
+  <script>
+    var arr = [2, 3, 4, 5, 6];
+    // slice()可以从数组提取指定元素
+    /*该刚发不会改变数组，而是讲解去到的元素封装到一个新数组中返回
+    参数：
+    1.开始位置索引
+    2.结束为止的索引
+    3.结束索引可以省略不写 从开始位置截取到数组结束
+    4.可以传递一个负值 则从后往前计算
+    */
+    var result = arr.slice(2, 4);
+
+    console.log(arr);
+
+    console.log(result);
+
+    /*splice()
+     -可以用于删除数组中的制定元素
+     使用splice() 会影响到原数组，会将指定元素从原数组删除 并将删除的元素作为哦返回值返回
+     并将删除的元素作为返回值返回
+     参数
+     1.开始的索引
+     2.删除的数量
+     3.及以后可以传递一些心愿苏这些位置会自动插入到开始位置索引前边
+     */
+    var rem = arr.slice(2, 3);
+    console.log(rem);
+    var set = arr.splice(2, 0, 7, 8, 9)//(开始位置，删除元素个数，从开始位置插入的元素，……)
+    console.log(arr);
+    console.log(typeof arr);
+    function name(params) {
+      
+    }
+    console.log(typeof name,name instanceof Object);
+
+  </script>
+</body>
+
+</html>

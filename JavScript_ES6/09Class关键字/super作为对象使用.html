@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  // class A {
+  //   constructor() {
+  //     this.p = 2;
+  //   }
+  // }
+  //
+  // class B extends A {
+  //   get m() {
+  //
+  //     return super.p;
+  //
+  //   }
+  // }
+  //
+  // let b = new B();
+  // // b.m()
+  // console.log(b.m); // undefined 由于super指向父类的原型对象，所以定义在父类实例上的方法或属性，是无法通过super调用的。
+  // // console.log(b.);
+  class A {
+    constructor() {
+      this.x = 1;
+    }
+  }
+  // A.prototype.x = 5;
+  class B extends A {
+    constructor() {
+      super();
+      this.x = 2;
+      super.x = 3;
+      console.log(super.x); // undefined 5//作为对象调用x 调用的是A.prototype上的x
+      console.log(this.x); // 3
+    }
+  }
+  let b = new B();
+  const obj = {
+    age:18
+  }
+  console.log(Object.prototype);
+</script>
+</body>
+</html>

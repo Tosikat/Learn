@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    .swiper {
+      
+      outline: 1px solid black;
+    }
+    .imgList {
+      list-style: none;
+      outline: 1px solid #3489db;
+      /* position: relative; */
+      margin: 40px 0px;
+      /* left: -1366px; */
+      /* 没移动1366px则移动一张图片 */
+      /* width: 6830px; */
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .imgList li {
+      width: 1549px;
+      height: 450px;
+      outline: 1px solid red;
+      /* overflow: hidden; */
+    }
+    .imgList li img{
+      display: block;
+      position: relative;
+      /* left: -240px; */
+    }
+
+    #imgHref {
+      position: absolute;
+      bottom: 15px;
+      /* left: 9%; */
+    }
+
+    #imgHref a {
+      float: left;
+      display: block;
+      width: 15px;
+      height: 15px;
+      margin: 0 5px;
+      border-radius: 50%;
+      background-color: #7f8c8d;
+      opacity: 0.5;
+    }
+
+    #imgHref #show {
+      background-color: white;
+    }
+
+    /* #imgHref a:hover {
+      background-color: white;
+    } */
+  </style>
+</head>
+
+<body>
+  <div class="swiper" id="#outer">
+    <ul class="i
+    .mgList" id="imgList">
+      <li>
+        <img src="../zero-img/banner01.jpg" alt="">
+      </li>
+      <li>
+        <img src="../zero-img/banner02.jpg" alt="">
+      </li>
+      <li>
+        <img src="../zero-img/banner03.jpg" alt="">
+      </li>
+      <li>
+        <img src="../zero-img/banner04.jpg" alt="">
+      </li>
+      <li>
+        <img src="../zero-img/banner05.jpg" alt="">
+      </li>
+    </ul>
+    <div id="imgHref">
+      <a href="javascript:;" id="show"></a>
+      <a href="javascript:;"></a>
+      <a href="javascript:;"></a>
+      <a href="javascript:;"></a>
+      <a href="javascript:;"></a>
+    </div>
+  </div>
+  <!-- <script>
+    // /设置img的宽度
+    var imgList = document.getElementById('imgList');
+    // var imgList = parseInt(getComputedStyle(ul, null).width);
+    var imgArr = document.getElementsByTagName('img');
+    var allA = document.getElementById('imgHref').getElementsByTagName('a');
+    var imgHref = document.getElementById('imgHref');
+    var swiper = document.getElementById('outer')
+    imgHref.style.left = "9%";
+    console.log(allA.length);
+    var index = 0;
+    // allA[index].style.backgroundColor = "white";
+    //点击超链接显示图片  绑定单击响应函数
+    for (let i = 0; i < allA.length; i++) {
+      // for循环执行完之后在执行单击响应函数 用let
+      index = i;
+      allA[i].onclick = function () {
+        // allA[i].style.backgroundColor = "white";
+        imgList.style.left = -1366 * i + "px";
+
+        Color();
+      }
+    }
+    // 创建一个方法 点击排他思想
+    function Color() {
+      for (let i = 0; i < allA.length; i++) {
+        allA[i].style.backgroundColor = "red"
+      }
+    }
+  </script> -->
+</body>
+
+</html>

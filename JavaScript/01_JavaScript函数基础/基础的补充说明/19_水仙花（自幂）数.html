@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var n = prompt("请输入一个范围的开始n: ");
+    var m = prompt("请输入一个范围的结束m: ");
+    bar(n, m);
+    function bar(n,m){
+      if(n > m){
+        var temp = n;
+        n = m;
+        m = temp;
+      }
+      for(var i = n; i <= m;i++){
+        var a = parseInt(i/100);
+        var b = parseInt((i%100)/10);
+        var c = i%10;
+        if(a**3+b**3+c**3 ===i){
+          console.log(i );
+        }
+      }
+    }
+  </script>
+</body>
+</html>

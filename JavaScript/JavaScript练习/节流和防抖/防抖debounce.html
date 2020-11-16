@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #content {
+      height: 150px;
+      line-height: 150px;
+      text-align: center;
+      color: #fff;
+      background-color: #ccc;
+      font-size: 80px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="content"></div>
+  <script>
+    let num = 1;
+    let content = document.getElementById('content');
+
+    function count() {
+      content.innerHTML = num++;
+      console.log(num);
+    };
+    // content.onmousemove = count;
+    content.onmousemove = debounce(count, 2000)
+
+    // 防抖函数  持续触发只会执行一次 只有停下来才会执行下一次
+    function debounce (fn, delay) {
+      let timer = null;
+      return function () {
+
+        if(timer) {
+        clearTimeout(timer);
+        }
+        timer = setTimeout(fn, delay)
+       
+      }
+    }
+  </script>
+</body>
+
+</html>

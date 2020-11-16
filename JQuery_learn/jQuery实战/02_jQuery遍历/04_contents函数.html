@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="../../jquery-1.12.4/jquery.min.js"></script>
+</head>
+<body>
+<ul>
+  <li>1</li>
+  <li ><a class="center" href="ww.baidu.com">百度</a></li>
+  <li><span>span元素</span></li>
+</ul>
+<script>
+  $(function () {
+    $('ul').contents().find('.center').css({//已获得匹配元素的子类元素
+      backgroundColor: "red"
+    })
+    $('ul').contents().find('span').css({
+      background: "blue"
+    })
+  })
+</script>
+</body>
+</html>

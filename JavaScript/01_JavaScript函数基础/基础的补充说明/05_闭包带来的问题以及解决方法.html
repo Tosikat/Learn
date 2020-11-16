@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function create(){
+      var result = new Array();
+      for (var  i = 0; i < 10; i++) {
+         result[i] = function(){
+           return i;
+         };
+      }
+      return result;
+    } 
+    console.log(create());
+
+    function recreate(){
+      var res = new Array();
+      for(var i = 0; i < 10; i++) {
+        res[i] = function(num){
+          return function() {
+            return num ;
+          }
+        }(i);
+      }
+      return res;
+    }
+    console.log(recreate());
+    
+  </script>
+</body>
+</html>

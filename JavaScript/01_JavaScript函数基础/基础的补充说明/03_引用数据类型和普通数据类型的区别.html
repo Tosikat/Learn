@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+   var a = b;
+   var b = 10;
+   console.log('a=',a,"b=",b);//undefined 10 变量提升导致找不到a所在的值
+   
+
+    var obj = {
+      name: 'kobe',
+      age: 18
+    }
+    var obj1 =  obj;
+    console.log(obj,obj1);
+    obj1.name =  'lijun';
+    console.log(obj,obj1);
+    var obj = null;
+    console.log(obj,obj1);
+
+  </script>
+</body>
+</html>

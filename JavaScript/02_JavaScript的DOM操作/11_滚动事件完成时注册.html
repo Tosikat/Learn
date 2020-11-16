@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      width: 250px;
+      height: 200px;
+      background-color: green;
+      overflow: scroll;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>欢迎亲爱的用户注册</h2>
+  <div class="box" id="box">
+
+    <p id="info">
+      札幌市是一个位于日本北海道道央地区的城市，拥有超过190万人口，是日本人口
+      第五多的城市，也是政令指定都市之一。札幌市是北海道政府（道厅）以及石狩振兴局
+      办公室所在地，也是北海道最大都市。札幌市位于北海道西部，是北海道铁路、高速公
+      路、航空路线的中心。
+      札幌市的历史开始于1869年日本设立开拓使时在此设置札幌本府。札幌的建设计
+      划由时任开拓判官岛义勇提出，他参考京都规划了棋盘状城市。1972年，札幌市举办
+      了亚洲首届冬季奥运会。此后札幌市举办了多种国际体育赛事。
+      札幌市还是日本著名的观光都市，并且在日本的魅力城市排行榜中亦排名前列。2013
+      年，札幌市加入了联合国教科文组织的全球创意城市网络中的媒体艺术城市，是世界第二
+      个和亚洲首个加盟城市。如同大部分北海道地区的地名由来，“札幌”这一地名也是起源于
+      北海道当地的原住民阿伊努族的语言阿伊努语。关于札幌的名称起源有二种说法，一说认
+      为札幌起源于阿伊努语中的“干渴的大河”；另一说则认为起源于阿伊努语中的的“有大片湿
+      地的河流”。
+    </p>
+
+  </div>
+  <input type="checkbox" id="item" disabled="disabled">我已仔细阅读协议，一定遵守
+  <button id="btn" disabled="disabled">注册</button>
+
+  <script>
+    /* onscroll
+    当垂直滚动到底时单项可用 */
+    var box = document.getElementById("box");
+    // 获取标签项
+    var inputs = document.getElementsByTagName("input");
+    var btn = document.getElementById("btn");
+    // 为info绑定一个滚动事件
+    box.onscroll = function () {
+      // clientHeight可见的高度
+      if (box.scrollHeight - box.scrollTop == box.clientHeight) {
+        inputs[0].disabled = false;//数组
+        btn.disabled = false;
+      }
+    }
+
+
+  </script>
+</body>
+
+</html>

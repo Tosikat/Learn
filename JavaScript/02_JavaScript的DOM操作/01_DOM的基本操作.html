@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button id="btn">按钮</button>
+  <button id="btn2">按钮2</button>
+  <script>
+    // DOM = 找对象 + 搞对象
+    //获取button对象
+    var btn = document.getElementById("btn");
+    console.log(typeof btn, btn);
+    // var btn2 = document.getElementById('btn2')
+    var btn2 = document.getElementById('btn2')
+    btn2.onclick = function () {
+      console.log("btn2触发");
+      // 修改按钮的文字
+      btn2.innerHTML = "I'm Button!"
+    }
+    
+    
+  </script>
+</body>
+
+</html>

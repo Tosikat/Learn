@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    sayHi();//函数声明提升 会先找到相应的函数 在执行此段代码
+
+    function sayHi(){
+      console.log("Hi!");
+    }
+
+    var  funtionName = function () {
+      console.log("匿名函数！");
+    }
+    funtionName();//匿名函数不可先调用  因为不存在函数声明提升
+
+    var b = 10;
+    function Abc() {
+      console.log(b);
+    }
+    Abc();//包含着全局变量
+
+  </script>
+</body>
+</html>

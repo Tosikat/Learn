@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    console.log(parseInt(0.0000));
+    const a = "012345";
+    console.log(parseInt(a));//12345
+    const b = "0x10";
+    console.log(parseInt(b), parseInt(0x0A));//16可以接受默认为进制标志的字符串
+    const c = "103";
+    // 不符合要求的字符串可在parseInt函数
+    console.log(parseInt(c, 2));//第一个参数要转化的字符串 第二个参数要转化的进制
+    const str = new String("4396");
+    console.log(str, parseInt(str));//parseInt只接受string类型和string包装类定义的值 转换其他类型的值会报错
+     console.log(parseInt("456blue"));//有字符串会抽取字符串的值  {数字+字符}数字  {字符+数字}NaN 存在非数字字符的前面必须有数字否则会打印NaN
+    console.log(Number("456789red"));//NaN转化整个值而不是部分
+    let f = 42;
+    console.log(f.toString(),typeof f);//对基本数据类型不好使
+
+  /* 
+  强制类型转换
+  parseInt parseFloat Number  String Boolean +
+  隐式类型转化
+  == + 
+  */
+  </script>
+</body>
+</html>

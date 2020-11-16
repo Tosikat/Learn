@@ -1,0 +1,165 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #box {
+      margin: 0 auto;
+      padding: 50px;
+      width: max-content;
+      height: max-content;
+      border: 1px solid black;
+    }
+
+    table {
+      display: block;
+      width: max-content;
+      margin: 0 auto;
+      margin-top: 10px;
+    }
+
+    .container h2 {
+      text-align: left;
+    }
+
+    th {
+      background-color: #f5f5f5;
+    }
+
+    #container {
+      width: 300px;
+      margin: 0 auto;
+      padding: 16px 40px;
+      margin-top: 50px;
+      border: 1px solid black;
+    }
+
+    label {
+      display: block;
+      margin: 10px;
+    }
+
+
+    button {
+      position: relative;
+      left: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box">
+    <table border="1" id="employeeTable">
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Salary</th>
+        <th></th>
+      </tr>
+      <tr>
+        <td>Tom</td>
+        <td>tom@tom.com</td>
+        <td>5000</td>
+        <td><a href="#">Delete</a></td>
+      </tr>
+      <tr>
+        <td>Jerry</td>
+        <td>tom@tom.com</td>
+        <td>5000</td>
+        <td><a href="#">Delete</a></td>
+      </tr>
+      <tr>
+        <td>Allen</td>
+        <td>tom@tom.com</td>
+        <td>5000</td>
+        <td><a href="#">Delete</a></td>
+      </tr>
+
+    </table>
+    <div id="container">
+      <h2>添加新员工</h2>
+      <label for="name">name:
+        <input type="text" id="name"></label>
+      <label for="email">email:
+        <input type="text" id="email"></label>
+      <label for="salary">salary:
+        <input type="text" id="salary"></label>
+      <button id="add">Submit</button>
+    </div>
+  </div>
+
+  <script>
+
+    function delA() {//全局封装函数
+      /* 
+      如有默认跳转行为 设置return false可取消默认跳转
+      如用alert（this）则跳出的位超链接的内容
+       */
+      var tr = this.parentNode.parentNode;
+
+      // 获取需要删除的名字
+      var trName = tr.children[0].innerHTML;
+      // var trName = tr.getElementsByTagName("td")[0].innerHTML;
+      // 删除提示按钮 无取消按钮
+      // alert("确认删除吗？")
+      var flag = confirm("确认删除" + trName + "吗？");
+      if (flag)
+        tr.parentNode.removeChild(tr);
+      /* 
+      confirm用于弹出一个但又确认和取消按钮的提示框
+      需要一个字符串作为参数 该字符串会作为哦提示文字显示出来 */
+      // 删除tr
+
+      return false;
+    }
+
+
+    // 点击超链接删除信息
+    var dete = document.getElementsByTagName("a");
+    for (var i = 0; i < dete.length; i++) {
+      // console.log("for循环执行中");
+      /* 
+      for循环会再也面加载完成之后立即执行
+      而响应函数会在超链接被点击击时才执行 */
+      dete[i].onclick = delA;
+    }
+    /* 添加功能 */
+    var add = document.getElementById("add");
+    add.onclick = function () {
+
+      // 获取员工的信息
+      var name = document.getElementById("name").value;
+      var email = document.getElementById("email").value;
+      var salary = document.getElementById("salary").value;
+      // alert("确认添加" + name + "吗？")
+
+      //创建一个tr
+      var tr = document.createElement("tr");
+
+      // 设置tr中的内容 简化内容
+      tr.innerHTML = "<td>" + name + "</td>" +
+        "<td>" + email + "</td>" +
+        "<td>" + salary + "</td>" +
+        "<td><a href='#'>Delect</td>";
+
+      // 获取a元素并为其绑定单击相应函数
+      var a = tr.getElementsByTagName("a")[0];
+      a.onclick = delA;
+
+
+
+      // 获取table
+      var employeeTable = document.getElementById("employeeTable");
+      // 获取table 中tbody(浏览器自带tbody) 显示不改变 内容已经改变
+      var tbody = employeeTable.getElementsByTagName("tbody")[0];//从table里面获取tbody
+      tbody.appendChild(tr);
+
+    }
+
+  </script>
+</body>
+
+</html>

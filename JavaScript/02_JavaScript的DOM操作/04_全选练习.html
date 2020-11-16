@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    window.onload = function () {
+
+      var item = document.getElementsByName("item");//可设置全局变量
+
+      var checkedAllBtn = document.getElementById("checkedAllBtn");
+      checkedAllBtn.onclick = function () {
+        for (var i = 0; i < item.length; i++) {
+          // 点击全选按钮将其设置成选中状态
+          item[i].checked = true;
+        }
+      }
+
+      var checkNoBtn = document.getElementById("checkNoBtn");
+      checkNoBtn.onclick = function () {
+        for (var i = 0; i < item.length; i++) {
+          item[i].checked = false;
+        }
+      }
+
+      var checkedRevBtn = document.getElementById("checkedRevBtn");
+      checkedRevBtn.onclick = function () {
+        for (var i = 0; i < item.length; i++) {
+          item[i].checked = !item[i].checked;
+          // if (item[i].checked) {
+          //   item[i].checked = false;
+          // }
+          // else
+          //   item[i].checked = true;
+        }
+      }
+
+      var checkedAllBox = document.getElementById("checkedAllBox");
+      checkedAllBox.onclick = function () {
+        for (var i = 0; i < item.length; i++) {
+          item[i].checked = checkedAllBox.checked;
+        }
+
+      }
+      var sendBtn = document.getElementById("sendBtn");
+      sendBtn.onclick = function () {
+
+        var item = document.getElementsByName("item");
+        var txt = "";
+        for (var i = 0; i < item.length; i++) {
+          if (item[i].checked) {
+            var txt = item[i].value + " "+ txt;
+          }
+        }
+        if (txt)
+          alert("你喜欢的运动是：" + txt);
+        else
+          alert("你没有选择任何运动");
+      }
+
+    }
+  </script>
+</head>
+
+<body>
+  <div>
+    <form action=""
+      style="position: absolute;left: 50%;bottom:50%; transform: translate(-50%,-50%); display: block; margin: 0 auto;width: max-content; background-color: #f5f5f5;">
+      你喜欢的球是？
+      <input type="checkbox" id="checkedAllBox">全选/全不选<br>
+      <input type="checkbox" name="item" value="足球">足球
+      <input type="checkbox" name="item" value="篮球">篮球
+      <input type="checkbox" name="item" value="羽毛球">羽毛球
+      <input type="checkbox" name="item" value="乒乓球">乒乓球<br>
+      <input type="button" id="checkedAllBtn" value="全选">
+      <input type="button" id="checkNoBtn" value="全不选">
+      <input type="button" id="checkedRevBtn" value="反选">
+      <input type="button" id="sendBtn" value="提交">
+    </form>
+  </div>
+
+</body>
+
+</html>

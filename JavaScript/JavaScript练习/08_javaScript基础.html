@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    console.log(a);
+    var a = 3;
+    /*  浏览器的编译方式 先获取所有声明的变量在一行行进行编译叫做变量提升 实际上执行的是以下代码
+     var a;
+     console.log(a);
+     a = 1; */
+    top:
+    for (var i = 0; i < 3; i++) {
+      for (var j = 0; j < 3; j++) {
+        if (i === 1 && j === 1){
+          break top;
+          console.log('i=' + i + ', j=' + j);
+        }
+        
+      }
+    }
+
+
+  </script>
+</body>
+
+</html>

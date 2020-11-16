@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  //没有直接的方法 只有变通的方法
+  //1.用set方法改变后再赋值给set的实例
+  //2.利用Array.from后再用new Set转换成set数据类型 再用set实例接收
+  // 方法一
+  let set = new Set([1, 2, 3]);
+  set = new Set([...set].map(val => val * 2));
+  console.log(set);// set的值是2, 4, 6
+
+
+  // 方法二
+  let set1 = new Set([1, 2, 3]);
+  set1 = new Set(Array.from(set1, val => val * 2));
+  console.log(set1);// set的值是2, 4, 6
+</script>
+</body>
+</html>

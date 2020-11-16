@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //foo()//TypeError! is not a funtion
+    // var foo = function bar(){
+    //   console.log("我是bar函数");
+    // }
+    // foo();//我是bar函数  ，函数会被升 但是函数表达式不会
+
+    //函数声明会被优先提升 其次22是变量 且同一名称的会被覆盖
+    foo();//3
+    var  foo;
+    function foo() {
+      console.log(1);
+    }
+    foo = function(){
+      console.log(2);
+    }
+    function foo(){
+      console.log(5);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <script>
+    /*
+      数组常用方法
+
+      18. copyWithin()
+        => 语法: 数组.copyWithin(目标位置, 开始索引, 结束索引)
+          -> 目标位置: 当你替换内容得时候, 从哪一个索引位置开始替换
+          -> 开始索引: 数组哪一个索引位置开始当作替换内容, 默认值是 0
+          -> 结束索引: 数组哪一个索引位置结束当作替换内容, 默认是末尾
+          -> 包前不包后
+        => 作用: 使用数组里面得内容替换数组里面得内容
+        => 返回值: 是一个新的数组
+          -> 替换后得数组
+
+      19. fill()
+        => 语法: 数组.fill(要填充得数据, 开始索引, 结束索引)
+          -> 要填充得数据: 你想用什么数据填充数组里面每一位
+          -> 开始索引: 从哪一个索引开始填充, 默认值是 0
+          -> 结束索引: 填充到哪一个索引位置, 默认值是 末尾
+          -> 前提: 数组要有 length
+          -> 包前不包后
+        => 作用: 使用指定数据区填充数组
+        => 返回值: 填充好得数组
+
+      20. includes()
+        => 语法: 数组.includes(数据)
+        => 作用: 查看数组中是不是有某一个数据
+        => 返回值: 一个布尔值
+          -> 有这个数据, 就是 true
+          -> 没有这个数据, 就是 false
+
+      21. flat()
+        => 语法: 数组.flat(数字)
+          -> 数字: 表示扁平化多少层, 默认是 1
+          -> 数字这个参数还可以填写 Infinity
+        => 作用: 拍平数组
+        => 返回值: 拍平以后得数组
+
+      22. flatMap()
+        => 语法: 数组.flatMap(function (item, index, arr) {})
+        => 作用: 拍平数组, 但是只能拍一层
+        => 返回值: 是一个新的数组
+          -> 一边拍平, 一边映射
+
+      23. find()
+        => 语法: 数组.find(function (item) {})
+        => 作用: 根据条件找到数组里面满足条件得数据
+        => 返回值: 找到得那个 **数据**
+
+      24. findIndex()
+        => 语法: 数组.findIndex(function (item) {})
+        => 作用: 根据条件找到数组里面满足条件得数据
+        => 返回值: 找到得那个 **数据得索引**
+
+
+      数组常用方法总结
+        01_数组常用方法1.html
+          => 数组基础方法
+          => push()
+          => pop()
+          => unshift()
+          => shift()
+        02_数组常用方法2.html
+          => ES3.0, IE 6 7 8 可以是使用
+          => reverse()
+          => sort()
+          => splice()
+          => join()
+          => slice()
+          => concat()
+        03_数组常用方法3.html
+          => ES5.0, IE 6 7 8 不好使了
+          => indexOf()
+          => lastIndexOf()
+          => forEach()
+          => map()
+          => fliter()
+          => every()
+          => some()
+        04_数组常用方法4.html
+          => ES2015(ES6) 以后, 标准浏览器, IE 10 以上
+          => fill()
+          => copyWithin()
+          => includes()
+          => flat()
+          => flatMap()
+          => find()
+          => findIndex()
+    */
+
+    // 18. copyWithin()
+    // var arr = [100, 200, 300, 400, 500]
+    // 第一个参数 0, 表示不管将来我用什么东西替换, 都从 0 位置开始替换
+    //    例子: 比如我要用 'a', 'b', 'c' 来替换, 从索引 [0] 开始替换
+    // var res = arr.copyWithin(0)
+
+    // 第二个参数 3, 表示原始数组索引 [3] 位置开始向后查找
+    // 因为没有写第三个参数, 默认到末尾
+    // 找到得就是 400 和 500
+    // 把 400 和 500 两个数据从 [0] 开始替换
+    // var res = arr.copyWithin(0, 3)
+    // console.log(res)
+
+    // 第三个参数 4, 表示原始数组索引 [4] 位置结束查找
+    // 找到的就是 [3] 开始 [4] 结束, 包前不包后, 找到得就是 400
+    // 把 400 从 0 开始替换
+    // var res = arr.copyWithin(0, 3, 4)
+    // console.log(res)
+
+    // 19. fill()
+    // var arr = new Array(30)
+    // 使用 '填充内容' 去把数组填满
+    // var res = arr.fill('填充内容')
+    // console.log(res)
+
+    // 使用 '填充内容' 从 [5] 开始填充数组, 填充到末尾
+    // var res = arr.fill('填充内容', 5)
+    // console.log(res)
+
+    // 使用 '填充内容' 从 [5] 开始填充到数组 [25]
+    // var res = arr.fill('填充内容', 5, 25)
+    // console.log(res)
+
+    // 20. includes()
+    // var arr = [10, 20, 30, 40, 50]
+    // var res = arr.includes(50)
+    // console.log(res)
+
+    // 21. flat()
+    // var arr = [
+    //   10, 20, 30,
+    //   [40, 50],
+    //   [60, 70, [80, [90, [100, [100, [120]]]]]]
+    // ]
+    // var res = arr.flat(Infinity)
+    // console.log(res)
+
+    // 22. flatMap()
+    // var arr = [[10, 21, 30], [40, 51, 60]]
+    // var res = arr.flatMap(function (item) {
+    //   return item.filter(function (item) { return item % 2 === 0 })
+    // })
+    // console.log(res)
+
+    // 23. find()
+    // var arr = [10, 20, 30, 40, 50]
+    // var res = arr.find(function (item) {
+    //   return item > 20
+    // })
+    // console.log(res)
+
+    // 24. findIndex()
+    // var res2 = arr.findIndex(function (item) {
+    //   return item > 20
+    // })
+    // console.log(res2)
+  </script>
+</body>
+</html>

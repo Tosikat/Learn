@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .outBox{
+      width: 400px;
+      height: 400px;
+      border:1px solid  red;
+      margin:10px auto;
+      position: absolute;
+    }
+    #box {
+      width: 100px;
+      height: 100px;
+      background-color: skyblue;
+      position: absolute;
+      /* 不能忘记绝对定位 */
+    }
+
+    #box2 {
+      width: 100px;
+      height: 100px;
+      background-color: yellowgreen;
+      left: 50%;
+      position: absolute;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="outBox">
+  <div id="box"></div>
+  <div id="box2"></div>
+  <!-- 当覆盖box2的mouseseup时再 --></div>
+  <script>
+    /*
+    当鼠标选中按下时，开始执行事件onmousedown
+    当鼠标移动时，元素跟随鼠标移动onmousemovw
+    当鼠标松开时 被拖拽元素在原地onmouseup */
+    var box = document.getElementById("box");
+    var outBox = document.querySelector('.outBox')
+    box.onmousedown = function () {
+      outBox.onmousemove = function (event) {
+        // event = event || window.event
+        var left = event.clientX;
+        var top = event.clientY;
+        box.style.left = left + "px";
+        box.style.top = top + "px";
+      }
+      outBox.onmouseup = function () {
+        // 当鼠标搜开始被拖拽元素固定在当前位置onmouseup
+        document.onmousemove = null;
+        document.onmouseup = null;
+        // alert("鼠标松开");
+        // 注意位置
+      }
+
+    }
+
+
+
+
+  </script>
+</body>
+
+</html>

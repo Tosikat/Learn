@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      font-family:'Times New Roman', Times, serif;
+      font-size: 30px;
+    }
+  </style>
+</head>
+<body>
+  <script>
+
+    console.log(null == undefined);
+    console.log(null === undefined);
+    var a = 7 + undefined;
+    console.log(a, typeof a);//NaN number
+
+    var b = 8 + null;
+    console.log(b, typeof b);//8 ， number null自动转换成0 
+    document.write("您好！")
+    // typeof 和 instanceof不能识别undefined 和null 通常用 ===  以及object  Array 
+    // undefined 表示定义了未赋值  ，null代表赋值了 值为null
+    var a = {
+      age:13
+    }
+    var b = a;
+    a.age = 14;
+    b = null;
+    console.log(a,b);
+    console.log(a===b);
+    var b = {
+      age: 20
+    };
+    console.log(a.age,b.age);
+    function A(obj) {
+      // 执行函数时执行 obj = a
+      var obj = {age: 15}
+      console.log(obj.age);
+    }
+    A(a);
+    console.log(a.age);
+    console.log(typeof undefined);
+  </script>
+
+</body>
+</html>

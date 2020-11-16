@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    // var b = 0;
+    // var a = new Promise((resolve, reject) => {
+    //   if(b)
+    //   return resolve("已解决！");//若此部未执行则执行后面的语句
+    //   // 后面的语句不会执行
+    //   console.log("未解决！");
+    // })
+    // console.log(a);
+
+    function setAsync(){
+      return new Promise(async resolve => {
+        setTimeout(() => {
+          resolve("Tosikat!")
+          resolve(a)
+        }, 1000)
+      }).then((res) => {
+        console.log(res)
+      },(err) => {
+        console.log(err)
+      })
+    }
+    console.log("执行之后")
+    setAsync()
+  </script>
+</body>
+
+</html>

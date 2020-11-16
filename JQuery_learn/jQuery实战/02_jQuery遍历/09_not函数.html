@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="../../jquery-1.12.4/jquery.min.js"></script>
+</head>
+<body>
+<ul>
+  <li>list item 1</li>
+  <li>list item 2</li>
+  <li id="notli">list item 3</li>
+  <li>list item 4</li>
+  <li>list item 5</li>
+</ul>
+<script>
+  $('li').not('#notli').css('backgroundColor', 'red')//表示除了id为notli的元素 都设置
+  console.log($('li#notli'));//不能删除元素节点 需要利用DOM操作 只能把匹配的元素信息排除在外
+  $('li#notli').detach();
+</script>
+</body>
+</html>

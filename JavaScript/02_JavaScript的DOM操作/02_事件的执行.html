@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // onload事件会在整个界面加载完成后再执行
+
+    window.onload = function () {
+
+      var btn = document.getElementById("btn");
+
+      btn.onclick = function () {
+        alert("这就是事件！");
+      }
+    }
+  </script>
+
+</head>
+
+<body>
+  <button id="btn">按钮</button>
+
+  <script>
+    /*
+    浏览器是加载一行运行一行，如果将js写在相当于css的位置，代码被执行时，页面页面还没有加载
+    将js代码编写到页面的下面就是为了可以在页面加载完毕以后在执行js代码
+
+
+    我们可以在事件对应的属性中设置一些js代码，这样当事件被出发时，这些代码将会执行 */
+    // 事件就是用户和浏览器之间的交互行为
+    // 比如，点击按钮，鼠标移动，关闭窗口。。
+
+    // var btn = document.getElementById("btn");
+
+    // btn.onclick = function () {
+    //   alert("这就是事件！");
+    // }
+
+  </script>
+</body>
+
+</html>

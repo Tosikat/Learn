@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var myModule = (function manager() {
+      var module = {};
+      function define(name, deps, impl){
+        for(var i = 0; i <deps.length; i++){
+          deps[i] = module[deps[i]];
+        }
+        module[name] = impl.apply( impl, deps);
+      }
+
+      function get(name) {
+
+        return module[name];
+      }
+
+      return{
+        define: define ,
+        get: get
+      }
+    })();
+    myModule.define("bar", [], function(){
+      function hello (who) {
+        return "letme introduce" + who;
+      }
+      return {
+        hello: hello
+      };
+    });
+    myModule.define("foo", ["bar"], function(bar){
+      var hungry = " Shippo";
+
+      function awesome(){
+        console.log(bar.hello(hungry).toUpperCase());
+      }
+      return {
+        awesome: awesome
+      };
+    });
+
+    var bar = myModule.get("bar");
+    var foo = myModule.get("foo");
+    console.log(bar.hello(" hippo"));
+    foo.awesome();//improt的使用必须在服务器的环境中才能运行
+  </script>
+</body>
+</html>

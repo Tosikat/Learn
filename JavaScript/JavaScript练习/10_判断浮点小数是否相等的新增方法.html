@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var a = "lijun";
+    console.log(a.length);//字符串拥有长度
+    function Equal(num1,num2){
+      return Math.abs(num1 - num2) < Number.EPSILON//固定值ES6新增 之差小于这个值即判定为相等
+    }
+    var a = 0.1 + 0.2;
+    var b = 0.3
+    Equal(a,b);
+    console.log(Equal(a,b));
+    var num = 0 / +32;
+    console.log(num);
+  </script>
+</body>
+</html>

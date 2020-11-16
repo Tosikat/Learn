@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- <link rel="icon" href="../../zero-img/username.png" type="image/x-icon"/> -->
+  <link rel="icon" href="../../zero-img/username.png">
+</head>
+<body>
+  <script>
+    // function coolMudule(){
+    //   var something = 'cool';
+    //   var another = [1,2,3];
+
+    //   function doSomething(){
+    //     console.log(something);
+    //   }
+
+    //   function doAnother(){
+    //     console.log(another.join('-'));
+    //   }
+
+    //   return {
+    //     doSomething,
+    //     doAnother
+    //   };
+    // }//封装函数后 实例化调用
+
+
+    // const foo = coolMudule();
+    //   foo.doSomething();
+    //   foo.doAnother();
+
+    //简化形式
+    const foo = (function coolMudule(){
+      var something = 'cool';
+      var another = [1,2,3];
+
+      function doSomething(){
+        console.log(something);
+      }
+
+      function doAnother(){
+        console.log(another.join('-'));
+      }
+
+      return {
+        doSomething,
+        doAnother
+      };
+    }//封装函数后 实例化调用
+
+   )();
+   foo.doSomething();
+   foo.doAnother();
+  </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /*
+      选择排序
+        + 每次选择一个最小的放在前面
+
+      1. 如何找到数组里面最小的数字的索引
+        => 循环遍历数组
+        => 假设数字 [0] 位置最小
+        => 如果哪一个数字比我还小, 那就用哪个小的数字的索引, 把我假设的索引替换掉
+        => 就是找到了一个最小的数字的索引
+        => 假设的是 [0], 我找到真的最小的哪个是 [8]
+        => 我就让 [0] 和 [8] 交换位置
+      2. 重复第一个步骤
+        => 但是, 重复的时候, 需要一些变换
+        => 第二次, 假设 [1] 是最小的
+        => 重复 八遍
+        => 规律
+          第 1 遍 j === 0, 假设 [0], 开始 1, 交换 [0]
+          第 2 遍 j === 1, 假设 [1], 开始 2, 交换 [1]
+          第 3 遍 j === 2, 假设 [2], 开始 3, 交换 [2]
+          第 4 遍 j === 3, 假设 [3], 开始 4, 交换 [3]
+          第 8 遍 j === 7, 假设 [7], 开始 8, 交换 [7]
+    */
+
+    var arr = [9, 2, 6, 4, 3, 8, 5, 7, 1]
+
+    // // 1. 找到最小的数字的索引
+    // // 假设的不是数字, 是索引
+    // var minIndex = 0
+
+    // for (var i = 1; i < arr.length; i++) {
+    //   if (arr[i] < arr[minIndex]) {
+    //     // 我是使用 i 当作数组的索引使用
+    //     // 我就把找到的这个毕我小的数字的索引赋值给 minIndex
+    //     minIndex = i
+    //   }
+    // }
+
+    // // 最小数字的索引是 8
+    // var tmp = arr[0]
+    // arr[0] = arr[minIndex]
+    // arr[minIndex] = tmp
+
+
+    // 2. 重复执行步骤一
+    for (var j = 0; j < arr.length - 1; j++) {
+      var minIndex = j;
+      for (var i = j + 1; i < arr.length; i++) {
+        if (arr[i] < arr[minIndex]) {
+          minIndex = i;
+        }
+      }
+      var tmp = arr[j];
+      arr[j] = arr[minIndex];
+      arr[minIndex] = tmp;
+    }
+
+    console.log(arr);
+
+  </script>
+</body>
+</html>

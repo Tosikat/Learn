@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <input type="text" id="text">
+  <script>
+    /*
+    onkeydown
+    -当按键被按下
+    onkeyup
+    -按键被松开
+    键盘事件一般都会绑定获取焦点的对象或者是document 比如表单之类的
+    第一次按下和第二次按下的时间间隔会久点 防止误操作  */
+    var input = document.getElementsByTagName("input")[0];
+    input.onkeydown = function (event) {
+      console.log(event.keyCode);//打印编码
+      /* 
+      判断某一个按键是否被按下 用event.keyCode == 按键的编码 特殊键查文档
+      功能键多个使用altKey ctrKey shiftKey
+      在文本矿中输入内容，属于onkeydown的默认行为 如果在onkkeydown中取消了默认行为，则输入的内容不会出现在文本框中
+       */
+    }
+  </script>
+</body>
+
+</html>

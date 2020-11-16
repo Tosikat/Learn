@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="time"></div>
+  <script>
+    var time1 = prompt("请输入第一个参数：");
+    var time2 = prompt("请输入第二个参数：");
+    function countDown(time1,time2){
+      var startTime = time1 * 1;
+      var endTime = time2 * 1;
+      console.log(startTime, endTime);
+
+      var nowTime = new Date(startTime);
+      var endTime = new Date(endTime);
+
+      var lefttime = endTime.getTime() - nowTime.getTime();
+      var leftd = Math.floor(lefttime/(1000 * 60 * 60 *24 ));
+      var lefth = Math.floor(lefttime/(1000 * 60 * 60) % 24);
+      var leftm = Math.floor(lefttime/(1000 * 60 ) % 60);
+      var lefts = Math.floor(lefttime/(1000 % 60 ));
+
+      var timer = leftd + '天 ' + lefth + '时 ' + leftm + '分 ' + lefts + '秒 ';
+      var time = document.querySelector('.time').innerHTML = timer;
+    };
+    countDown(time1,time2)
+
+
+
+  </script>
+</body>
+</html>

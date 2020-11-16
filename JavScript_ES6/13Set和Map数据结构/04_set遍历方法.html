@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>04_set遍历方法</title>
+</head>
+<body>
+<script>
+  let set = new Set(['red', 'green', 'blue']);
+
+  for (let item of set.keys()) {
+    console.log(item);
+  }
+  // red
+  // green
+  // blue
+
+  for (let item of set.values()) {
+    console.log(item);
+  }
+  // red
+  // green
+  // blue
+
+  for (let item of set.entries()) {
+    console.log(item);
+  }
+  // ["red", "red"]
+  // ["green", "green"]
+  // ["blue", "blue"]
+
+  let s = new Set([1, 4, 9]);
+  s.forEach((value, key) => console.log(key + ' : ' + value))
+  // 1 : 1
+  // 4 : 4
+  // 9 : 9
+
+  let set2 = new Set(['red', 'green', 'blue']);
+  let arr = [...set2];
+  console.log(arr);
+</script>
+</body>
+</html>

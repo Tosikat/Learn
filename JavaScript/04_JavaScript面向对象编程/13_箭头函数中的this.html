@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var obj = {
+      count: 0,
+      cool() {
+        if (this.count < 1) {
+          setTimeout(function () {
+            this.count++;//undefined+1 = NaN
+            console.log(window.count);
+            console.log(this, this.count);
+          }, 1000)
+        }
+      }
+    }
+
+    obj.cool()
+    console.log(window.count+"123");
+  </script>
+</body>
+
+</html>

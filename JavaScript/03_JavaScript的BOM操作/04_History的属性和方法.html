@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <a href="03_small.html">small</a>
+  <a href="03_wide.html">wide</a>
+  <script>
+    //window.history属性指向 History 对象，它表示当前窗口的浏览历史
+    console.log(window.history.length);//History 对象保存了当前窗口访问过的所有页面网址。下面代码表示当前窗口一共访问过3个网址。
+    console.log(window.history.state);//History 堆栈最上层的状态值
+    console.log(history.pushState(state, title, url));//用于在历史中添加一条记录。该方法接受三个参数
+/*     history.back();
+    history.forward();
+    history.go(-2);
+     */
+
+  </script>
+</body>
+
+</html>

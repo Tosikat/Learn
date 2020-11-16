@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="../../jquery-1.12.4/jquery.min.js"></script>
+</head>
+<body>
+<div class="box" style="width: 200px;height: 200px;outline: 1px solid red; background-color: green"></div>
+
+<p style="background-color: yellow">我是p标签</p>
+
+<script>
+  $(".box").add("p").css({
+    backgroundColor: "red"//一个集合 并且只能在add函数之后修改共同的样式和其他共同事件
+  }).on("click", function () {
+    alert(123)
+  })
+</script>
+</body>
+</html>

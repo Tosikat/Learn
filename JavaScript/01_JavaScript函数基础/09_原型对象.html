@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*原型prototype
+    所创建的每一个函数,解析器都会像函数添加一个属性prototype 
+    这个属性对应着一个对象 就是我们所谓的原型对象
+    如果函数作为普通函数调用prototype没有任何作用 可通过_proto_来访问该属性
+    相当于一个公共的区域,所有同一个类的实例都可以都可以访问这个原型对象
+    可以将对象中共有的内容,统一设置到原型计算中
+    访问一个属性或方法时,他会现在对象自身中寻找,如果有则直接使用 如果没有他则会去原型对象中寻找,如果找到则直接使用
+    作用:可以在创建构造函数时在全局定义方法(每个对象创建都会调用且只创建一次而且不会污染全局变量)
+    共有的属性和方法统一添加到原型对象中
+    */
+    function Person(name) {
+      this.name = name;
+    }
+    // sayName() {
+    //   console.log(this.name);
+    // 污染全局变量  同文件的相同函数名会覆盖
+    // }
+    Person.prototype.sayName = function () {
+      console.log("his");
+      // 
+        }
+    var obj = new Person("coder");
+    var obj2 = new Person("why");
+
+    console.log(typeof toString(obj));
+    Person.prototype.sayName();
+
+
+  </script>
+</body>
+
+</html>

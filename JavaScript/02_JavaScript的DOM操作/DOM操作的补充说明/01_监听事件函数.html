@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="box" style="width: 200px;
+  height: 200px; background-color: red;"></div>
+  <button id="btn" style="margin:0 auto;">按钮</button>
+  <script>
+    var box = document.querySelector('.box');
+    var btn = document.querySelector('#btn');
+    btn.onclick = function(){
+      alert("点击事件1！");
+      alert("点击事件2!");
+      box.style.backgroundColor = "blue";
+    }
+    btn.onmousemove = function(){
+      console.log(123);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    class Soo{
+      constructor(name, age){
+        this.name = name;
+        this.age = age;
+      }
+      action(){
+        console.log("Soo类");
+      }
+    }
+    // class Foo{
+    //   constructor(){
+
+    //   }
+    // }
+    // function Foo(){}
+    // function Soo(){}
+
+    class Foo extends Soo{
+      constructor(name, age, hobby){
+        super("lijun", 18);
+        this.name = name;
+        this.age = age;
+        this.hobby = hobby;
+      }
+      fooAction(){
+        return super.name;
+      }
+    }//ES6所用的继承不一样
+    
+    // Foo.prototype = new Soo();
+
+    var bar = new Foo("Tosikat", 22, "learn");
+    console.log(bar);
+    console.log(bar.fooAction());
+    console.log(bar instanceof Foo);
+    console.log(Foo instanceof Function);
+    console.log(bar instanceof Function);
+    console.log(Foo instanceof Object);
+    console.log(bar instanceof Object);
+    console.log(Object instanceof Function);
+    console.log("*************************");
+
+    console.log(bar instanceof Soo);
+    console.log(Foo instanceof Soo);//继承他并不代表是他的实例函数
+    console.log(Soo instanceof Function);
+    console.log(Soo instanceof Object);
+  </script>
+</body>
+</html>

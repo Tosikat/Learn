@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function Cat(name, color) {
+      this.name = name;
+      this.color = color;
+      this.meow = function () {
+        console.log('喵 喵');
+      }
+    };
+    console.log(Cat.prototype);
+
+    var cat1 = new Cat('大毛', '白色');
+    var cat2 = new Cat('二毛', '灰色');
+    console.log(cat1, cat2);
+    //实例对象身上系统自己添加一个_proto_指向构造函数的原型对象 只要构造函数原型对象存在
+    // 就可以在这个构造函数中的实例对象的_proto_对象中找到构造函数的prototype _proto_不能直接进行赋值 通常称为对象的原型
+    console.log(cat1.name);
+    // '大毛'
+    console.log(cat1.color);
+    // '白色'
+    console.log(cat1.meow === cat2.meow);//比较的内存地址
+    /* // 上面代码中，cat1和cat2是同一个构造函数的两个实例，它
+    // 们都具有meow方法。由于meow方法是生成在每个实例对象上
+    // 面，所以两个实例就生成了两次。也就是说，每新建一个实例，
+    // 就会新建一个meow方法。这既没有必要，又浪费系统资源，因为所有meow方法都是同样的行为，完全应该共享 */
+    Cat.prototype.sing = function () {
+      console.log("Singing");
+    }
+    console.log(cat1.sing === cat2.sing);
+    //公共属性定义构造函数中，公共的方法放到原型对象上
+
+  </script>
+</body>
+
+</html>

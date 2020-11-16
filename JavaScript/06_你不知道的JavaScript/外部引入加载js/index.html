@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+</body>
+
+<!-- 
+  外部引入js时 在一个文件中每个js是相互独立的运行 其中一个js文件报错 只会影响自己文件下的js执行
+  而不影响以后的js文件执行 除非以后的js用到该文件中的变量 而因为该文件报错未执行才会报错
+ -->
+<script src="./1.js"></script>
+<script src="./2.js"></script>
+<script>
+  console.log("我是index里的js文件 继续执行");
+</script>
+</html>

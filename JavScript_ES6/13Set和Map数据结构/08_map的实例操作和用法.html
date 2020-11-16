@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  //包括set基本用法 另外拥有set设置值的方法接收一个键值对,若有 则更新 没有则添加
+
+  const map = new Map();
+  //set方法返回的是set对象因此可以写成链式结构
+  map.set(1, "name")
+     .set(2, "age")
+     .set(3, "male")
+    .set([1,2])//以[1,2]为键名  值为undefined
+  console.log([...map]);
+
+  //get方法读取set实例中的键名 找不到相应的key则返回undefined
+  console.log(map.get(3));
+  //Map本身没有数组的map和filter方法 可以利用参数为数组进行引用 或者使用扩展运算符转化成数组使用
+</script>
+</body>
+</html>

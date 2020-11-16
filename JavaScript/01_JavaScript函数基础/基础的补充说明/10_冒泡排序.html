@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <script>
+    /*
+      冒泡排序
+        + 为什么学冒泡排序
+        + 把一个乱序的数组按照一定的算法结构排序好
+          => 准备一个数组
+          => var arr = [9, 2, 6, 4, 3, 8, 5, 7, 1]
+        + 口诀
+          双层 for 循环, 一层减一次
+          里层减外层, 变量相交换
+
+      1. 学会交换数组里面两个数据的位置
+        => 假设 [0] 和 [1] 位置的数据交换
+      2. 先遍历循环数组
+        => 让前一个数字和后一个数字比较
+        => 如果前一个比后一个大, 那么就换一下
+        => 执行一遍以后, 最大的数字一定在最后
+      3. 让步骤二重复执行
+        => 如果有 9 个数字, 八遍
+        => 如果是 100 个数字, 九十九遍
+    */
+
+    var arr = [9, 2, 6, 4, 3, 8, 5, 7, 1]
+
+    // 1. 交换两个数据的位置
+    //    利用第三个变量
+    // var tmp = arr[0]
+    // arr[0] = arr[1]
+    // arr[1] = tmp
+    // console.log(arr)
+
+    // 2. 循环遍历数组
+    // for (var i = 0; i < arr.length; i++) {
+    //   // arr[i] 就是当前这个
+    //   // arr[i + 1] 就是下一个
+
+    //   if (arr[i] > arr[i + 1]) {
+    //     var tmp = arr[i]
+    //     arr[i] = arr[i + 1]
+    //     arr[i + 1] = tmp
+    //   }
+    // }
+
+    // 3. 步骤二重复执行
+    // for (var j = 0; j < arr.length - 1; j++) {
+    //   for (var i = 0; i < arr.length; i++) {
+    //     if (arr[i] > arr[i + 1]) {
+    //       var tmp = arr[i]
+    //       arr[i] = arr[i + 1]
+    //       arr[i + 1] = tmp
+    //     }
+    //   }
+    // }
+
+
+    // for (var i = 0; i < arr.length - 1; i++) {
+    //   console.log('arr[' + i + '] > arr[' + (i+1) + ']')
+    //   if (arr[i] > arr[i + 1]) {
+    //     var tmp = arr[i]
+    //     arr[i] = arr[i + 1]
+    //     arr[i + 1] = tmp
+    //   }
+    // }
+
+    /*
+      优化1:
+        + 单独看步骤2
+        for (var i = 0; i < arr.length; i++) {
+          if (arr[i] > arr[i + 1]) {
+            var tmp = arr[i]
+            arr[i] = arr[i + 1]
+            arr[i + 1] = tmp
+          }
+        }
+        + 代码执行
+        + 有循环 0 ~ 8     0 1 2 3 4 5 6 7 8
+          => 第一遍 arr[0] > arr[1]
+          => 第二遍 arr[1] > arr[2]
+          => 第三遍 arr[2] > arr[3]
+          => 第四遍 arr[3] > arr[4]
+          => 第五遍 arr[4] > arr[5]
+          => 第六遍 arr[5] > arr[6]
+          => 第七遍 arr[6] > arr[7]
+          => 第八遍 arr[7] > arr[8]
+          => 第九遍 arr[8] > arr[9]
+        + 数组的 length 是 9
+          => 最后一位的索引是 8
+          => 我的最后一次比较 [8] > [9]
+          => [9] 是 undefined
+          => 我实际上比较的是 数字 > undefined
+          => 最后一次比较是没有意义的
+    */
+
+
+    // for (var j = 0; j < arr.length - 1; j++) {
+    //   for (var i = 0; i < arr.length - 1 - j; i++) {
+    //     if (arr[i] > arr[i + 1]) {
+    //       var tmp = arr[i]
+    //       arr[i] = arr[i + 1]
+    //       arr[i + 1] = tmp
+    //     }
+    //   }
+    // }
+
+
+    /*
+      优化2:
+        + 两个步骤放在一起看
+        for (var j = 0; j < arr.length - 1; j++) {
+          for (var i = 0; i < arr.length - 1 - j; i++) {
+            if (arr[i] > arr[i + 1]) {
+              var tmp = arr[i]
+              arr[i] = arr[i + 1]
+              arr[i + 1] = tmp
+            }
+          }
+        }
+        + 看外层循环
+          => 表示把步骤 2 重复多少回
+          => 重复第一回, 把最大的数字放在最后了
+          => 重复第二回, 倒数第二次是把倒数第二大的放在到数第二位
+            -> 最后一次, 是到数第二大和到数第一大在比较, -1 次
+          => 重复第三回, 倒数第三次是把到数第三大的放在到数第三位
+            -> 到数第二次, 是到数第三和到数第二比较, -1次
+            -> 最后一次, 是到数第二和到数第一比较, -1次
+          => 重复第四回, 到数第四次是把到数第四大的放在了到数第四位
+            -> 倒数第三次比较, 是到数第四和到数第三, -1次
+            -> 到数第二次比较, 是到数第三和到数第二, -1次
+            -> 最后一次比较, 到数第二大和最大的比较, -1次
+        + 规律
+          + 重复第 1 回, j === 0, 减少 0 次
+          + 重复第 2 回, j === 1, 减少 1 次
+          + 重复第 3 回, j === 2, 减少 2 次
+          + 重复第 4 回, j === 3, 减少 3 次
+          + 重复的过程中, 外层变量是几, 就减少几回
+
+    */
+
+    for (var i = 0; i < arr.length - 1; i++) {
+      for (var j = 0; j < arr.length - 1 - i; j++) {
+        if (arr[j] > arr[j + 1]) {
+          var tmp = arr[j]
+          arr[j] = arr[j + 1]
+          arr[j + 1] = tmp
+        }
+      }
+    }
+
+    console.log(arr)
+  </script>
+</body>
+</html>

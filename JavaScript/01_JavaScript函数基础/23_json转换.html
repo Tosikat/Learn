@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <script>
+    /*
+      小案例
+        + JSON.parse + JSON.stringify 可以完全复制一份没有的函数的对象
+    */
+
+    var obj = {
+      name: 'Jack',
+      age: 18,
+      gender: '男'
+    }
+
+    // 复杂数据类型赋值
+    // var obj2 = obj
+    // obj2.name = 'Rose'
+    // console.log(obj)
+
+    // 转换以后就是一个 String 类型, 基本数据类型
+    var str = JSON.stringify(obj)
+    // 把 基本数据类型 str 赋值给 parse 函数的第一个实参
+    // 得到的是一个新的对象数据结构, 和 obj 没有关系
+    var obj3 = JSON.parse(str)
+
+    obj3.name= 'Rose'
+    console.log(obj) // name === Jack Rose
+    console.log(obj3) // name === Jack Rose
+  </script>
+</body>
+</html>

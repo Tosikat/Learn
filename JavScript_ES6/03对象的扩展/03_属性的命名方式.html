@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  let propKey = 'foo';
+  const obj = {
+    [propKey]: true,
+    ['c' + 'ban']: "submit"
+  }
+  obj.name = "lijun";
+  obj["a" + "ge"] = 22;//字符串拼接的方式
+  console.log(obj);
+
+  const keyA = {a: 1};
+  const keyB = {b: 2};
+  const keyC = {c: 3};
+  const keyD = {d: 4};
+
+  const myObject = {
+
+  };
+  myObject.keyA = 100;
+  myObject[keyB] = 200;
+  myObject[keyC] = 300;
+  myObject.keyD = 400;
+  console.log(myObject);
+  // 属性名表达式如果是一个对象，默认情况下会自动将对象转为字符串[object Object]，这一点要特别小心。
+</script>
+</body>
+</html>

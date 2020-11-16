@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <script>
+    /*
+      递归二分法排序(快速排序)
+
+      1. 准备一个函数, 接收一个数组
+      2. 准备递归了
+        => 先找停得条件
+          -> 只要数组得 length <= 1, 就停下来, 直接返回原数组
+        => 停以外得行为
+          -> 找到一个数组长度一般得取整
+          -> 从数组里面把这个数据拆出来 splice
+          -> 准备两个新数组, 一个表示左边, 一个表示右边
+          -> 循环遍历被拆除一个数字得数组
+          -> 判断大小, 选择一个数组放进去
+    */
+
+    var arr = [8, 4, 3, 2, 6, 7, 1, 5, 9]
+
+    // 1. 准备一个函数
+    function quickSort(arr) {
+      // arr 就是要排序得数组
+      // 2-1. 递归停得条件
+      if (arr.length <= 1) {
+        return arr
+      }
+
+      // 2-2. 不到停得时候
+      var centerIndex = parseInt(arr.length / 2)
+      var center = arr.splice(centerIndex, 1)[0]
+
+      // 准备两个数组
+      var left = []  // 小
+      var right = []  // 大
+
+      // 循环遍历 arr
+      for (var i = 0; i < arr.length; i++) {
+        // 判断大小, 决定放在那个数组里面
+        if (arr[i] < center) {
+          left.push(arr[i])
+        } else {
+          right.push(arr[i])
+        }
+      }
+
+      // 向里面递归
+      // 因为 concat 不改变原始数组, 他是拼接好以后成为一个新数组
+      return quickSort(left).concat(center, quickSort(right))
+    }
+
+    var res = quickSort(arr)
+  </script>
+</body>
+</html>

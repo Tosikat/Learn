@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+
+
+<script>
+  // 1.this指向所在的对象
+  var person = {
+    name: '张三',
+    describe: function () {
+      return "姓名： "+ this.name;
+    }
+  };
+  console.log(person.describe());//姓名张三
+
+  // 2.this指向可以通过对象赋值变化而变化
+  var A = {
+    name: '张三',
+    describe: function () {
+      return '姓名：'+ this.name;
+    }
+  };
+
+  var B = {
+    name: '李四'
+  };
+
+  B.describe = A.describe;
+  console.log(B.describe());//姓名李四
+
+  // 3.下面代码中，A.describe被赋值给变量f，内部的this就会指向f运行时所在的对象（本例是顶层对象window）
+  var A = {
+    name: '张三',
+    describe: function () {
+      return '姓名：'+ this.name;
+    }
+  };
+
+  var name = '李四';
+  var f = A.describe;
+  console.log(f()); // "姓名：李四
+  // console.log(typeof null) 返回一个object类型
+
+// 使用变量固定this 重要
+  var o = {
+    f1: function() {
+      console.log(this);
+      var that = this;
+      var f2 = function() {
+        console.log(that);
+      }();
+    }
+  }
+  o.f1();
+</script>
+
+</body>
+</html>

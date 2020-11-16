@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button id="btn">baidu</button>
+  <script>
+    /*
+    Location -封装了浏览器的地址栏的属性 */
+    // alert(location);//获取到当前页面路径 
+    var btn = document.getElementById('btn');
+    btn.onclick = function () {
+      document.location.assign('http://www.baidu.com');//assign替换成replace则不能返回原网页地址
+    }
+  </script>
+</body>
+
+</html>

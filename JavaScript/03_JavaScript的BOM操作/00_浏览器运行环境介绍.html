@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body a{
+      text-decoration: none;
+      color: #999;
+      display: block;
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  <button onclick="console.log('点击按钮');
+  console.log('第二次打印')">事件</button>
+
+<a href="javascript:console.log('Hello')">点击</a>
+<!-- url协议 -->
+<a href="javascript: new Date().toLocaleTimeString();">点击显示新页面展示日期</a>
+<!-- 如果 JavaScript 代码返回一个字符串，浏览器就会新建一个文档，展示这个字符串的内容，原有文档的内容都会消失 -->
+<a href="javascript: console.log(new Date().toLocaleTimeString())">点击不会跳转打印日期</a>
+
+<a href="javascript: void new Date().toLocaleTimeString();">点击 前面加void</a>
+<a href="javascript: new Date().toLocaleTimeString();void 0;">点击 后面加void</a>
+  <script id="mydata" type="x-custom-data">
+    //浏览器不认识其中的代码也不会执行其中的代码 需要获取并执行
+    console.log('Hello World');
+  </script>
+  <script>
+    //将上述标签当作一个id为mydata的标签 获取并打印
+    console.log(document.getElementById('mydata').text);
+  </script>
+  <!-- <script src=""></script> 内部不能再写任何javascript代码-->
+  <!-- <script src="/assets/application.js"
+  integrity="sha256-TvVUHzSfftWg1rcfL6TIJ0XKEGrgLyEq6lEpcmrG9qs=">
+</script> 指定特定的目录 更改目录后该js代码不生效 -->
+</body>
+</html>

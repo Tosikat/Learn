@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+    //为何要使用闭包  种种情况下 需要获取函数内部的变量 在函数外部无法读取 于是采取了在获取变量的函数内部再
+    //定义一个函数 如下
+    function a(){
+      const num = 100;//目标变量
+
+      function b(){
+        console.log(num);
+      }
+      return b;
+      // b();
+    }
+    const getNum = a(); //实例化的同时调用a函数 返回的是b函数
+    getNum();
+    // a();若再a函数中直接调用b则可通过a调用
+
+
+    console.log("*************");
+
+
+    // function foo(){
+    //   var a = 2;
+    //   function bar() {
+    //     console.log(a);
+    //   }
+    //   return bar;
+    // }
+    // var baz = foo();
+    // baz();//2这就是闭包的效果
+    // //闭包可以阻止fool函数在执行后被销毁 因为其内部仍有bar函数在使用
+    // //bar()依然持有对该作用域的引用，而这个 引用+就叫做闭包
+
+    // function foo(){
+    //   var a = 2;
+    //   function baz(){
+    //     console.log(a);//2
+    //   }
+    //   bar(baz);
+    // }
+    // function bar (fn){
+    //   fn();//闭包在这  调用的过程
+    // }
+    // foo();
+  </script>
+</body>
+</html>

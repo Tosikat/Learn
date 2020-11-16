@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  console.log(Symbol() == Symbol(),Symbol() === Symbol());//每一个值都是独一无二的
+  //Number String Boolean parseInt parseFloat 强制转化
+
+  //Symbol作为对象的属性名时不能使用点运算符赋值
+
+  const mySym = Symbol();
+  const obj = {} ;
+
+  obj.mySym = "hello";  //报错 Invalid regular expression: missing /
+  // obj[mySym] = "hello";
+  // obj['mySym'] = " age";
+  console.log(obj,typeof mySym);
+</script>
+</body>
+</html>

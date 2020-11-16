@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    console.log(navigator.appName);// Netscape网景公司 获得浏览器的名字
+   /* *重要测试分辨浏览器MDN** */ console.log(navigator.userAgent);//Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36
+    console.log("以下浏览器所安装的插件");
+    var pluginsLength = navigator.plugins.length;
+    for (var i = 0; i < pluginsLength; i++) {
+      console.log(navigator.plugins[i].name);
+      console.log(navigator.plugins[i].filename);
+      console.log(navigator.plugins[i].description);
+      console.log(navigator.plugins[i].version);
+    }
+    console.log("操作系统为： " + navigator.platform);//w32
+    console.log("是否能连接网络 以及在线还是离线" + navigator.onLine);//false用户一定是离线状态
+
+    window.addEventListener('offline', function (e) {
+      console.log('offline');
+    });//在线状态触发
+    window.addEventListener('online', function (e) {
+      console.log('online');
+    });//离线状态触发  状态值 转换的一瞬间才能触发
+    console.log(navigator.language);//浏览器的首选语言
+    console.log(navigator.languages);//用户可以接受的语言
+
+    console.log(navigator.geolocation);//返回一个对象 包含用户的地理信息位置（没看懂）
+    //console.log(navigator.geolocation.getCurrentPosition());//注意，该 API 只有在 HTTPS 协议下可用，否则调用下面方法时会报错
+    console.log(navigator.cookieEnabled);//没太看懂 表示浏览器的 Cookie 功能是否打开
+
+    // Navigator 对象的方法
+    console.log(navigator.javaEnabled());//表示浏览器是否能运行 Java Applet 小程序
+    // console.log(navigator.sendBeacon()); 亦需要http请求  否则会报错
+
+
+
+
+  </script>
+</body>
+
+</html>

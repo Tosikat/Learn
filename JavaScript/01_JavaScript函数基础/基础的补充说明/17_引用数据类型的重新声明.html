@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+      var a = {
+        age: 13
+      }
+      console.log(a.age);
+       a = {
+        age: 14
+      }
+      function fn(obj){
+        var obj = {//重新开辟一个空间
+          age: 18
+        }
+        console.log(a.age, obj.age);
+      }
+      fn(a);
+      console.log(a.age);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    {
+      let b = 3;
+      console.log(3);
+    }
+    console.log(b);//Reforerror b is not defined;
+    var a = 123;
+    function fun() {
+      console.log(a);
+      debugger
+      a = 456;
+    }
+
+    function bor(a) {
+      console.log(a);
+      a = 789
+    }
+
+    fun();
+    bor(147)
+    console.log(a);
+
+    // var a = 123;
+    // function fun(a) {
+    //   console.log(a);
+    //   a = 456;
+    // }
+
+    // fun(789);
+    // console.log(a);
+  </script>
+</body>
+
+</html>

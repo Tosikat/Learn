@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+<body>
+<script>
+  
+  function foo(string, ...values) {
+    console.log(string);
+    console.log(values);
+  }
+  const desc = "awesome";
+  foo`Everything is ${desc}!`;
+
+  function showraw(strings, ...values) {
+    console.log(strings);
+    console.log(strings.raw);
+    console.log(values);
+  }
+
+  const str = "Tosikat";
+  console.log("Hello\nWorld");
+
+  showraw`Hello\nWorld ${str}`;//转换出原始的字符串string.raw
+
+  console.log(String.raw`Hello\nWorld`);
+  //Hello\nWorld
+  String.raw`Hello\nWorld`.length;//全球化、本地化特殊处理
+
+</script>
+</body>
+</html>

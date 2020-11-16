@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+</head>
+<body>
+<script>
+  let [foo = true] = [];
+  console.log(foo);//true
+
+  let [x, y = 'a'] = ['b'];
+  console.log(x);//b
+
+  let [m, n = 'b', c, d] = ['a', undefined];//有个成员严格等于undefined才生效使用 ===进行判断
+  console.log(m,c,d);
+  console.log("********************");
+  let [p = 1] = [null];
+  console.log(p);
+
+  // let [x = 1, y = x] = [];     // x=1; y=1
+  let [t, q = t] = [];
+  console.log(t ,q);//undefined undefined;
+  // let [x = y, y = 1] = [];     // ReferenceError: y is not defined  赋值了未定义的数值报错
+  console.log(Object.prototype.toString.call(undefined));;
+</script>
+</body>
+</html>

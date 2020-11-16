@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="../../jquery-1.12.4/jquery.min.js"></script>
+</head>
+<body>
+<button class="hide">Click me hidden!</button>
+<button class="show">Click me show!</button>
+<button class="toggle">Click me toggle!</button>
+<div class="box" style="width: 400px;height: 400px;background-color: #2e45db;"></div>
+<script>
+  $('.hide').click(function () {
+    $('.box')
+      .slideUp('fast', function () {})//[持续动画的时间] 写持续时间不能使用字符串类型的数字  只能写固定单词
+  })
+  $('.show').click(function () {
+    $('.box')
+      .slideDown('fast', function () {})
+  })
+  $('.toggle').click(function () {
+    $('.box')
+      .slideToggle('fast', function () {})
+  })
+
+</script>
+</body>
+</html>
